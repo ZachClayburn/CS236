@@ -4,4 +4,4 @@ project(CS236_Lab)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SOURCE_FILES main.cpp)
-add_executable(CS236_Lab ${SOURCE_FILES})
+add_executable(Lab ${SOURCE_FILES})
