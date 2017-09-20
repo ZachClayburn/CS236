@@ -45,7 +45,7 @@ public:
 	/**
 	 * Get the contents of the Token in a string.
 	 *
-	 * Gets a string of the contents in the form (TYPE,string,line)
+	 * Gets a string of the contents in the form (TYPE,"string",line)
 	 * @return a std::string containing the tokens contents
 	 */
 	std::string getString();
