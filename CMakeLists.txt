@@ -3,5 +3,6 @@ project(CS236_Lab)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES main.cpp)
-add_executable(Lab ${SOURCE_FILES})
+set(SOURCE_FILES Lexer.cpp Lexer.h Token.cpp Token.h)
+add_executable(Lab main.cpp ${SOURCE_FILES})
+add_executable(testing ${SOURCE_FILES} testMain.cpp)
