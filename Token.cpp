@@ -12,7 +12,7 @@ Token::Token(int lineIn, std::string stringIn,Token::types typeIn){
 
 }
 
-std::string Token::getString(){
+std::string Token::toString()const{
 
 	std::stringstream ss;
 	std::string typeString;

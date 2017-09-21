@@ -3,3 +3,7 @@
 //
 
 #include "Lexer.h"
+
+Lexer::Lexer(InputChars input) {
+
+}
