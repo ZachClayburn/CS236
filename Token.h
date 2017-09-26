@@ -81,7 +81,7 @@ private:
 	 *
 	 * This function can change the type of the token, used to change ID tokens into keyword tokens
 	 * @warning This can be used to change a token to an incorrect type, use with care
-	 * @param typeIn
+	 * @param typeIn The new type to make the token
 	 */
 	void setType(types typeIn);
 };

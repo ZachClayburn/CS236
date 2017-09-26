@@ -30,9 +30,17 @@ public:
 	 * Get the next character.
 	 *
 	 * Returns the next char and advances to the next char
-	 * @return the next character in the file contents
+	 * @return The next character in the file contents
 	 */
 	char getNext();
+
+	/**
+	 * Peek at the next character.
+	 *
+	 * Like getNext, but doesn't advance the pointer to the next char
+	 * @return The next character in the file contents
+	 */
+	char peekNext();
 
 	/**
 	 * Get the line number the current character is from.
@@ -41,7 +49,7 @@ public:
 	 * after getNext is called, you should call getCurLine before calling getNext
 	 * @return The line that InputChars is currently on
 	 */
-	int getCurLine() const;
+	int getLine() const;
 
 	/**
 	 * Get current position in the file.

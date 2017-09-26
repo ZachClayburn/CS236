@@ -34,7 +34,7 @@ char InputChars::getNext() {
 	return value;
 }
 
-int InputChars::getCurLine() const {
+int InputChars::getLine() const {
 	return this->curLine;
 }
 
@@ -55,4 +55,8 @@ void InputChars::moveToPosition(int index) {
 
 bool InputChars::isEOF() {
 	return (curPos >= chars.size());
+}
+
+char InputChars::peekNext() {
+	return chars.at(curPos);
 }

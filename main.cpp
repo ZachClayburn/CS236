@@ -27,12 +27,16 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
+	//Validate the file is valid
 	if(!validateFile(args[1])){
 		cout << "Bad File!" << endl;
 		return 0;
 	}
 
 	InputChars inputChars(args[1]);
+	Lexer lexer(inputChars);
+
+
 
 
 	return 0;

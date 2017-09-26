@@ -13,7 +13,7 @@ int main(int nargin, char* args[]){
 	int lineNum = 0;
 
 	while(!inputChars.isEOF()){
-		int temp = inputChars.getCurLine();
+		int temp = inputChars.getLine();
 		if(temp != lineNum){
 			lineNum = temp;
 			std::cout << lineNum << ' ';
@@ -24,7 +24,7 @@ int main(int nargin, char* args[]){
 
 	inputChars.moveToPosition(26);
 	while(!inputChars.isEOF()){
-		int temp = inputChars.getCurLine();
+		int temp = inputChars.getLine();
 		if(temp != lineNum){
 			lineNum = temp;
 			std::cout << lineNum << ' ';

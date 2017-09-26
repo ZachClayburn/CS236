@@ -44,3 +44,11 @@ std::string Token::toString()const{
 
 	return ss.str();
 }
+
+types Token::getType()const{
+	return type;
+}
+
+void Token::setType(types typeIn){
+	type = typeIn;
+}
