@@ -4,9 +4,10 @@
 
 #include "Lexer.h"
 
-Lexer::Lexer(InputChars& input) {
+Lexer::Lexer(const char* fileName) {
 	int line = 0;
 	char next = ' ';
+	InputChars input(fileName);
 	while(!input.isEOF()){
 		line = input.getLine();
 		next = input.getNext();

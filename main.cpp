@@ -33,11 +33,11 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
-	InputChars inputChars(args[1]);
-	Lexer lexer(inputChars);
+	
+	Lexer lexer(args[1]);
+
+	//Requirement for Project1
 	lexer.printTokens();
-
-
 
 	return 0;
 }

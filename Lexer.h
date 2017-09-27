@@ -17,12 +17,12 @@ public:
 	/**
 	 * Constructs a Lexer object.
 	 *
-	 * The constructor creates the Lexer object and parses through all of the input in the InputChars, creating tokens
-	 * out of all of the contents
-	 * @param input An InputChars object containing the contents of a file read in already
+	 * The constructor creates the Lexer object and parses through all of the input in the file named by fileName using
+	 * an InputFile object, and creates tokens out of all of the contents
+	 * @param fileName The name of a
 	 * @returns A Lexer object
 	 */
-	Lexer(InputChars& input);
+	Lexer(const char* fileName);
 
 	/**
 	 * Prints all tokens to the standard output.
