@@ -23,14 +23,14 @@ Lexer::Lexer(InputChars& input) {
 		}
 
 		switch (next){
-			case ',' :  tokens.emplace_back(Token(line,std::string(1,next),Token::COMMA));         break;
-			case '.' :  tokens.emplace_back(Token(line,std::string(1,next),Token::PERIOD));        break;
-			case '?' :  tokens.emplace_back(Token(line,std::string(1,next),Token::Q_MARK));        break;
-			case '(' :  tokens.emplace_back(Token(line,std::string(1,next),Token::LEFT_PAREN));    break;
-			case ')' :  tokens.emplace_back(Token(line,std::string(1,next),Token::RIGHT_PAREN));   break;
+			case ',' :  tokens.emplace_back(Token(line,std::string(1,next),Token::COMMA));          break;
+			case '.' :  tokens.emplace_back(Token(line,std::string(1,next),Token::PERIOD));         break;
+			case '?' :  tokens.emplace_back(Token(line,std::string(1,next),Token::Q_MARK));         break;
+			case '(' :  tokens.emplace_back(Token(line,std::string(1,next),Token::LEFT_PAREN));     break;
+			case ')' :  tokens.emplace_back(Token(line,std::string(1,next),Token::RIGHT_PAREN));    break;
 			case ':' :  addColon(input,line);                                                       break;
-			case '*' :  tokens.emplace_back(Token(line,std::string(1,next),Token::MULTIPLY));      break;
-			case '+' :  tokens.emplace_back(Token(line,std::string(1,next),Token::ADD));           break;
+			case '*' :  tokens.emplace_back(Token(line,std::string(1,next),Token::MULTIPLY));       break;
+			case '+' :  tokens.emplace_back(Token(line,std::string(1,next),Token::ADD));            break;
 			case '\'':  addString(input,line);                                                      break;
 			case '#' :  addComment(input,line);                                                     break;
 			default  :  addID(input,next,line);                                                     break;
@@ -44,6 +44,7 @@ void Lexer::printTokens() {
 	for(auto &token : tokens){
 		std::cout << token.toString() << std::endl;
 	}
+	std::cout << "Total Tokens = " << tokens.size();
 
 }
 
@@ -59,9 +60,9 @@ void Lexer::addColon(InputChars &input, int currentLine) {
 void Lexer::addString(InputChars &input, int currentLine) {
 
 	std::string string = "'";
-	char next = input.getNext();
-	if(next == '\''){
-		string += "'";
+	char next;
+	if(input.peekNext() == '\''){
+		string += input.getNext();
 		tokens.emplace_back(Token(currentLine,string,Token::STRING));
 		return;
 	}

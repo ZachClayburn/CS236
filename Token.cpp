@@ -40,7 +40,7 @@ std::string Token::toString()const{
 		case ENDOFFILE:typeString = "EOF";break;
 	}
 
-	ss << '(' << typeString << ',' << this->string << ',' << this->line << ')';
+	ss << '(' << typeString << ",\"" << this->string << "\"," << this->line << ')';
 
 	return ss.str();
 }
