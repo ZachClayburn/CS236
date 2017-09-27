@@ -15,12 +15,12 @@ InputChars::InputChars(const char* fileName) {
 	infile.seekg(0,infile.beg);
 	buffer = new char[length];
 	infile.read(buffer,length);
-	delete[] buffer;
 
 	this->chars = std::string(buffer);
 	this->curLine = 1;
 	this->curPos = 0;
 
+	delete[] buffer;
 }
 
 char InputChars::getNext() {
@@ -59,5 +59,9 @@ bool InputChars::isEOF() {
 }
 
 char InputChars::peekNext() {
-	return chars.at(curPos);
+	if (!isEOF()) {
+		return chars.at(curPos);
+	}else{
+		return (char)NULL;
+	}
 }

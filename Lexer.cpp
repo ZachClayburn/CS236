@@ -63,27 +63,16 @@ void Lexer::addString(InputChars &input, int currentLine) {
 
 	std::string string = "'";
 	char next;
-	if(input.peekNext() == '\''){
-		string += input.getNext();
-		tokens.emplace_back(Token(currentLine,string,Token::STRING));
-		return;
-	}
 	while(!input.isEOF()){
 		next = input.getNext();
 		if(next == '\''){
-			if(input.peekNext() != '\''){
-				for(int i = 1; i < string.size(); i++){
-					if(string.at((unsigned long)i) == '\'' && string.at((unsigned long)i - 1) == '\''){
-						string.erase((unsigned long)i,1);
-					}
-				}
+			if(input.peekNext() == '\''){
+				string += next;
+				string += input.getNext();
+			} else{
 				string += next;
 				tokens.emplace_back(Token(currentLine,string,Token::STRING));
 				return;
-			} else{
-				string += next;
-				next = input.getNext();
-				string += next;
 			};
 		} else{
 			string += next;
@@ -95,6 +84,9 @@ void Lexer::addString(InputChars &input, int currentLine) {
 void Lexer::addComment(InputChars &input, int currentLine) {
 	std::string string = "#";
 	bool multiLine = input.peekNext() == '|';
+	if(multiLine) {
+		string += input.getNext();
+	}
 	while(!input.isEOF()){
 		char next = input.getNext();
 		if(!multiLine && next == '\n'){
