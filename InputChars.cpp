@@ -15,6 +15,7 @@ InputChars::InputChars(const char* fileName) {
 	infile.seekg(0,infile.beg);
 	buffer = new char[length];
 	infile.read(buffer,length);
+	delete[] buffer;
 
 	this->chars = std::string(buffer);
 	this->curLine = 1;

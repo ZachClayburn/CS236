@@ -33,7 +33,7 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
-	
+
 	Lexer lexer(args[1]);
 
 	//Requirement for Project1
