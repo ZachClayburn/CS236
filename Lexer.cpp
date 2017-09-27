@@ -5,38 +5,46 @@
 #include "Lexer.h"
 
 Lexer::Lexer(InputChars& input) {
-
+	int line = 0;
+	char next = ' ';
 	while(!input.isEOF()){
-		unsigned long pos = input.getPosition();
-		int line = input.getLine();
-		char next = input.getNext();
+		line = input.getLine();
+		next = input.getNext();
 
 
 		while(isspace(next)){
-			pos = input.getPosition();
-			line = input.getLine();
-			next = input.getNext();
 			if(input.isEOF()){
-				tokens.emplace_back(Token(line,std::to_string(next),Token::ENDOFFILE));
-				//add the function that will clean up the ID that are keywords
+				tokens.emplace_back(Token(line,std::string(1,next),Token::ENDOFFILE));
+				cleanup();
 				return;
 			}
+			line = input.getLine();
+			next = input.getNext();
 		}
 
 		switch (next){
-			case ',' :  tokens.emplace_back(Token(line,std::to_string(next),Token::COMMA));         break;
-			case '.' :  tokens.emplace_back(Token(line,std::to_string(next),Token::PERIOD));        break;
-			case '?' :  tokens.emplace_back(Token(line,std::to_string(next),Token::Q_MARK));        break;
-			case '(' :  tokens.emplace_back(Token(line,std::to_string(next),Token::LEFT_PAREN));    break;
-			case ')' :  tokens.emplace_back(Token(line,std::to_string(next),Token::RIGHT_PAREN));   break;
+			case ',' :  tokens.emplace_back(Token(line,std::string(1,next),Token::COMMA));         break;
+			case '.' :  tokens.emplace_back(Token(line,std::string(1,next),Token::PERIOD));        break;
+			case '?' :  tokens.emplace_back(Token(line,std::string(1,next),Token::Q_MARK));        break;
+			case '(' :  tokens.emplace_back(Token(line,std::string(1,next),Token::LEFT_PAREN));    break;
+			case ')' :  tokens.emplace_back(Token(line,std::string(1,next),Token::RIGHT_PAREN));   break;
 			case ':' :  addColon(input,line);                                                       break;
-			case '*' :  tokens.emplace_back(Token(line,std::to_string(next),Token::MULTIPLY));      break;
-			case '+' :  tokens.emplace_back(Token(line,std::to_string(next),Token::ADD));           break;
+			case '*' :  tokens.emplace_back(Token(line,std::string(1,next),Token::MULTIPLY));      break;
+			case '+' :  tokens.emplace_back(Token(line,std::string(1,next),Token::ADD));           break;
 			case '\'':  addString(input,line);                                                      break;
 			case '#' :  addComment(input,line);                                                     break;
 			default  :  addID(input,next,line);                                                     break;
 		}
 	}
+	tokens.emplace_back(Token(line,std::string(1,next),Token::ENDOFFILE));
+	cleanup();
+}
+
+void Lexer::printTokens() {
+	for(auto &token : tokens){
+		std::cout << token.toString() << std::endl;
+	}
+
 }
 
 void Lexer::addColon(InputChars &input, int currentLine) {
@@ -80,7 +88,7 @@ void Lexer::addComment(InputChars &input, int currentLine) {
 	bool multiLine = input.peekNext() == '|';
 	while(!input.isEOF()){
 		char next = input.getNext();
-		if(!multiLine && next == '/n'){
+		if(!multiLine && next == '\n'){
 			tokens.emplace_back(Token(currentLine,string,Token::COMMENT));
 			return;
 		}
@@ -101,21 +109,32 @@ void Lexer::addComment(InputChars &input, int currentLine) {
 
 void Lexer::addID(InputChars &input, char next, int currentLine) {
 	if(!isalpha(next)){
-		tokens.emplace_back(Token(currentLine,std::to_string(next),Token::UNDEFINED));
+		tokens.emplace_back(Token(currentLine,std::string(1,next),Token::UNDEFINED));
 		return;
 	}
-	std::string string = std::to_string(next);
+	std::string string = std::string(1,next);
 	while(!input.isEOF()){
 		if(isalnum(input.peekNext())){
 			string += input.getNext();
-		}else if(isspace(input.peekNext())){
-			next = input.getNext();
-			tokens.emplace_back(Token(currentLine, string,Token::ID));
-			return;
 		}else{
 			tokens.emplace_back(Token(currentLine,string,Token::ID));
-			tokens.emplace_back((Token(input.getLine(),std::to_string(input.getNext()),Token::UNDEFINED)));
 			return;
+		}
+	}
+}
+
+void Lexer::cleanup() {
+	for (auto &token : tokens) {
+		if(token.type == Token::ID){
+			if(token.string == "Schemes"){
+				token.setType(Token::SCHEMES);
+			}else if(token.string == "Facts"){
+				token.setType(Token::FACTS);
+			}else if(token.string == "Rules"){
+				token.setType(Token::RULES);
+			}else if(token.string == "Queries"){
+				token.setType(Token::QUERIES);
+			}
 		}
 	}
 }

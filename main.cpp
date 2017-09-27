@@ -35,7 +35,7 @@ int main(int nargin, char* args[]) {
 
 	InputChars inputChars(args[1]);
 	Lexer lexer(inputChars);
-
+	lexer.printTokens();
 
 
 

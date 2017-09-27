@@ -24,6 +24,13 @@ public:
 	 */
 	Lexer(InputChars& input);
 
+	/**
+	 * Prints all tokens to the standard output.
+	 *
+	 * Iterates through the vector of Tokens and prints all of their contents.
+	 */
+	void printTokens();
+
 
 private:
 	/**
@@ -71,6 +78,14 @@ private:
 	 * @param currentLine The line that the token began on
 	 */
 	void addID(InputChars& input, char next, int currentLine);
+
+	/**
+	 * Cleans up the keyword Tokens
+	 *
+	 * All keyword Tokens are all saved as ID, so this function runs through the vector of Tokens and changes all of the
+	 * ID tokens that have keywords as their strings
+	 */
+	void cleanup();
 
 };
 
