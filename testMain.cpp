@@ -8,32 +8,11 @@
 
 int main(int nargin, char* args[]){
 
-	InputChars inputChars(args[1]);
-	char thing = ' ';
-	int lineNum = 0;
+	std::string string = "Hello, world!";
 
-	while(!inputChars.isEOF()){
-		int temp = inputChars.getLine();
-		if(temp != lineNum){
-			lineNum = temp;
-			std::cout << lineNum << ' ';
-		}
-		thing = inputChars.getNext();
-		std::cout << thing;
+	for(auto &point : string){
+		std::cout << point << std::endl;
 	}
-
-	inputChars.moveToPosition(26);
-	while(!inputChars.isEOF()){
-		int temp = inputChars.getLine();
-		if(temp != lineNum){
-			lineNum = temp;
-			std::cout << lineNum << ' ';
-		}
-		thing = inputChars.getNext();
-		std::cout << thing;
-	}
-
-
 
 	return 0;
 }

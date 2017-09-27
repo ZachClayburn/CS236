@@ -14,7 +14,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eca88cf5-9277-4196-ae1f-1303585241a4" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Lexer.cpp" afterPath="$PROJECT_DIR$/Lexer.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Token.cpp" afterPath="$PROJECT_DIR$/Token.cpp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testMain.cpp" afterPath="$PROJECT_DIR$/testMain.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,32 +33,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="testMain.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/testMain.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Test.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cmake-build-debug/Test.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Lexer.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Lexer.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="71" column="15" lean-forward="false" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-              <folding />
+            <state relative-caret-position="400">
+              <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+              <folding>
+                <element signature="e#2830#3489#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -67,7 +49,7 @@
         <entry file="file://$PROJECT_DIR$/Lexer.h">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="461">
-              <caret line="75" column="17" lean-forward="true" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+              <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
               <folding>
                 <element signature="e#111#128#0" expanded="true" />
               </folding>
@@ -78,10 +60,9 @@
       <file leaf-file-name="main.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
+            <state relative-caret-position="345">
               <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="false" />
                 <element signature="e#154#374#0" expanded="false" />
               </folding>
             </state>
@@ -92,7 +73,7 @@
         <entry file="file://$PROJECT_DIR$/Token.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="320">
-              <caret line="42" column="83" lean-forward="true" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+              <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -167,7 +148,6 @@
         <option value="$PROJECT_DIR$/Doxyfile" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/cmake-build-debug/testfile.txt" />
-        <option value="$PROJECT_DIR$/testMain.cpp" />
         <option value="$PROJECT_DIR$/InputChars.cpp" />
         <option value="$PROJECT_DIR$/InputChars.h" />
         <option value="$PROJECT_DIR$/Token.h" />
@@ -175,6 +155,9 @@
         <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/cmake-build-debug/Test.txt" />
         <option value="$PROJECT_DIR$/Token.cpp" />
+        <option value="$PROJECT_DIR$/testMain.cpp" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/file1.txt" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/file2.txt" />
         <option value="$PROJECT_DIR$/Lexer.cpp" />
       </list>
     </option>
@@ -282,7 +265,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
-    <property name="add_unversioned_files" value="$PROJECT_DIR$/cmake-build-debug/testfile.txt&#10;/home/zach/Documents/CS236/CS236 Lab/cmake-build-debug/Test.txt" />
+    <property name="add_unversioned_files" value="$PROJECT_DIR$/cmake-build-debug/file2.txt&#10;/home/zach/Documents/CS236/CS236 Lab/cmake-build-debug/file1.txt&#10;/home/zach/Documents/CS236/CS236 Lab/cmake-build-debug/testfile.txt&#10;/home/zach/Documents/CS236/CS236 Lab/cmake-build-debug/Test.txt" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -300,7 +283,7 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="Lab" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="Test.txt" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS236_Lab" TARGET_NAME="Lab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS236_Lab" RUN_TARGET_NAME="Lab">
+    <configuration name="Lab" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="file2.txt" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS236_Lab" TARGET_NAME="Lab" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS236_Lab" RUN_TARGET_NAME="Lab">
       <envs />
     </configuration>
     <configuration name="testing" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="testfile.txt" PASS_PARENT_ENVS_2="true" PROJECT_NAME="CS236_Lab" TARGET_NAME="testing" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="CS236_Lab" RUN_TARGET_NAME="testing">
@@ -333,7 +316,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48412000" />
+    <option name="totallyTimeSpent" value="52031000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -431,37 +414,20 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/Lexer.cpp</url>
-          <line>60</line>
+          <line>61</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="31" />
+      <option name="time" value="32" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -495,7 +461,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2830#3489#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -514,7 +482,6 @@
         <state relative-caret-position="45">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -566,7 +533,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2830#3489#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -585,7 +554,6 @@
         <state relative-caret-position="144">
           <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -647,7 +615,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#2830#3489#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -656,7 +626,6 @@
         <state relative-caret-position="54">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -701,7 +670,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -728,7 +696,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="false" />
             <element signature="e#154#374#0" expanded="false" />
           </folding>
         </state>
@@ -786,14 +753,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testMain.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="31" lean-forward="false" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///usr/include/c++/5/bits/basic_string.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -830,22 +789,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#19#0" expanded="false" />
-            <element signature="e#154#374#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/testfile.txt" />
     <entry file="file://$PROJECT_DIR$/Token.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
-          <caret line="42" column="83" lean-forward="true" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
+          <caret line="42" column="83" lean-forward="false" selection-start-line="42" selection-start-column="83" selection-end-line="42" selection-end-column="83" />
           <folding />
         </state>
       </provider>
@@ -858,10 +806,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testMain.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="40" lean-forward="false" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding>
+            <element signature="e#154#374#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/file1.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/file2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Lexer.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
-          <caret line="75" column="17" lean-forward="true" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
           <folding>
             <element signature="e#111#128#0" expanded="true" />
           </folding>
@@ -870,9 +852,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Lexer.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="71" column="15" lean-forward="false" selection-start-line="71" selection-start-column="15" selection-end-line="71" selection-end-column="15" />
-          <folding />
+        <state relative-caret-position="400">
+          <caret line="53" column="36" lean-forward="false" selection-start-line="53" selection-start-column="36" selection-end-line="53" selection-end-column="36" />
+          <folding>
+            <element signature="e#2830#3489#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

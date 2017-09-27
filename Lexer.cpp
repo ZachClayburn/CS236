@@ -14,7 +14,7 @@ Lexer::Lexer(InputChars& input) {
 
 		while(isspace(next)){
 			if(input.isEOF()){
-				tokens.emplace_back(Token(line,std::string(1,next),Token::ENDOFFILE));
+				tokens.emplace_back(Token(input.getLine(), "", Token::ENDOFFILE));
 				cleanup();
 				return;
 			}
@@ -36,7 +36,7 @@ Lexer::Lexer(InputChars& input) {
 			default  :  addID(input,next,line);                                                     break;
 		}
 	}
-	tokens.emplace_back(Token(line,std::string(1,next),Token::ENDOFFILE));
+	tokens.emplace_back(Token(input.getLine(),"", Token::ENDOFFILE));
 	cleanup();
 }
 
@@ -51,6 +51,7 @@ void Lexer::printTokens() {
 void Lexer::addColon(InputChars &input, int currentLine) {
 
 	if(input.peekNext() == '-'){
+		char next = input.getNext();
 		tokens.emplace_back(Token(currentLine,":-",Token::COLON_DASH));
 	} else{
 		tokens.emplace_back(Token(currentLine,":",Token::COLON));
@@ -69,13 +70,19 @@ void Lexer::addString(InputChars &input, int currentLine) {
 	while(!input.isEOF()){
 		next = input.getNext();
 		if(next == '\''){
-			if(input.peekNext() == '\''){
-				next = input.getNext();
-				string += next;
-			} else{
+			if(input.peekNext() != '\''){
+				for(int i = 1; i < string.size(); i++){
+					if(string.at((unsigned long)i) == '\'' && string.at((unsigned long)i - 1) == '\''){
+						string.erase((unsigned long)i,1);
+					}
+				}
 				string += next;
 				tokens.emplace_back(Token(currentLine,string,Token::STRING));
 				return;
+			} else{
+				string += next;
+				next = input.getNext();
+				string += next;
 			};
 		} else{
 			string += next;
