@@ -2,6 +2,7 @@
 // Created by zach on 9/18/17.
 //
 
+#include <iostream>
 #include "Token.h"
 
 Token::Token(int lineIn, std::string stringIn,Token::types typeIn){
@@ -41,6 +42,7 @@ std::string Token::toString()const{
 	}
 
 	ss << '(' << typeString << ",\"" << this->string << "\"," << this->line << ')';
+
 
 	return ss.str();
 }

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <fstream>
+#include <iostream>
 
 /**
  * A Class containing the contents of an input file

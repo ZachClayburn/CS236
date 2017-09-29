@@ -7,30 +7,36 @@
 InputChars::InputChars(const char* fileName) {
 
 	std::ifstream infile;
-	char* buffer;
+	std::string string;
+
 	infile.open(fileName);
 
-	infile.seekg(0,infile.end);
-	long length = infile.tellg();
-	infile.seekg(0,infile.beg);
-	buffer = new char[length];
-	infile.read(buffer,length);
+	while(!infile.eof()){
+		auto next = (char)infile.get();
+		if(!infile.eof()) {
+			string += next;
+		}
+	}
 
-	this->chars = std::string(buffer);
+	this->chars = string;
 	this->curLine = 1;
 	this->curPos = 0;
 
-	delete[] buffer;
 }
 
 char InputChars::getNext() {
 
-	char value = chars.at(curPos);
-	if(value == '\n'){
-		curLine++;
+	char value;
+	if(!isEOF()) {
+		value = chars.at(curPos);
+		if (value == '\n') {
+			curLine++;
+		}
+		curPos++;
+	} else{
+		std::cerr << "It reached out of bounds!!" << std::endl;
+		value = '!';
 	}
-
-	curPos++;
 
 	return value;
 }
