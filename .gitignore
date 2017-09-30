@@ -7,3 +7,4 @@ cmake-build-debug/
 doc/
 .idea/encodings.xml
 .idea/workspace.xml
+.idea/preferred-vcs.xml

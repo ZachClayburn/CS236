@@ -20,7 +20,7 @@ InputChars::InputChars(const char* fileName) {
 
 	this->chars = string;
 	this->curLine = 1;
-	this->curPos = 0;
+	this->Pos = 0;
 
 }
 
@@ -28,11 +28,11 @@ char InputChars::getNext() {
 
 	char value;
 	if(!isEOF()) {
-		value = chars.at(curPos);
+		value = chars.at(Pos);
 		if (value == '\n') {
 			curLine++;
 		}
-		curPos++;
+		Pos++;
 	} else{
 		std::cerr << "It reached out of bounds!!" << std::endl;
 		value = '!';
@@ -46,13 +46,13 @@ int InputChars::getLine() const {
 }
 
 unsigned long InputChars::getPosition() const {
-	return this->curPos;
+	return this->Pos;
 }
 
 void InputChars::moveToPosition(int index) {
 
-	for(curPos = curLine = 0;curPos <= index;curPos++){
-		char temp = chars.at(curPos);
+	for(Pos = curLine = 0;Pos <= index;Pos++){
+		char temp = chars.at(Pos);
 		if(temp == '\n'){
 			curLine++;
 		}
@@ -61,12 +61,12 @@ void InputChars::moveToPosition(int index) {
 }
 
 bool InputChars::isEOF() {
-	return (curPos >= chars.size());
+	return (Pos >= chars.size());
 }
 
 char InputChars::peekNext() {
 	if (!isEOF()) {
-		return chars.at(curPos);
+		return chars.at(Pos);
 	}else{
 		return (char)NULL;
 	}

@@ -25,6 +25,22 @@ public:
 	Lexer(const char* fileName);
 
 	/**
+	 * Gets the next token.
+	 *
+	 * Returns the next token and advances the internal iterator to the next token
+	 * @return A copy of the next token in the file
+	 */
+	Token getNext();
+
+	/**
+	 * Peeks at the next token.
+	 *
+	 * Returns the next token, but does not advance the iterator
+	 * @return A copy of the next token in the file
+	 */
+	Token peekNext();
+
+	/**
 	 * Prints all tokens to the standard output.
 	 *
 	 * Iterates through the vector of Tokens and prints all of their contents.
@@ -33,6 +49,12 @@ public:
 
 
 private:
+
+	/**
+	 * The iterator of the current position in the vector of tokens
+	 */
+	unsigned long pos;
+
 	/**
 	 * A vector containing all of the tokens from the file
 	 */

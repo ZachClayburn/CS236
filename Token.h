@@ -8,6 +8,9 @@
 #include <string>
 #include <sstream>
 
+/**
+ * The tokens from the input file
+ */
 class Token {
 
 public:

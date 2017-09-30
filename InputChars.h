@@ -10,7 +10,7 @@
 #include <iostream>
 
 /**
- * A Class containing the contents of an input file
+ * A Class containing the contents of an input file.
  *
  * This class exists to allow the program to quickly parse through the contents of a given input file by reading in
  * the file in its entirety and storing it in memory.
@@ -86,7 +86,7 @@ private:
 	/**
 	 * The current position.
 	 */
-	unsigned long curPos;
+	unsigned long Pos;
 
 	/**
 	 * The Current Line number.

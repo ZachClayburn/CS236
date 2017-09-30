@@ -3,8 +3,11 @@
 //
 
 #include "Lexer.h"
+//---------------------------------------------------------------------------------------------------------------------
+// Public functions
+//---------------------------------------------------------------------------------------------------------------------
 
-Lexer::Lexer(const char* fileName) {
+Lexer::Lexer(const char* fileName): pos(0) {
 	int line = 0;
 	char next = ' ';
 	InputChars input(fileName);
@@ -48,6 +51,21 @@ void Lexer::printTokens() {
 	std::cout << "Total Tokens = " << tokens.size();
 
 }
+
+Token Lexer::getNext() {
+	Token rValue = tokens.at(pos);
+	pos++;
+	return rValue;
+}
+
+Token Lexer::peekNext() {
+	Token rValue = tokens.at(pos);
+	return rValue;
+}
+
+//---------------------------------------------------------------------------------------------------------------------
+// Private functions
+//---------------------------------------------------------------------------------------------------------------------
 
 void Lexer::addColon(InputChars &input, int currentLine) {
 

@@ -1,12 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
-#include <string>
 #include "Lexer.h"
-#include "InputChars.h"
 
-using std::cout;
-using std::endl;
 
 /**
  * Validates that file exists
@@ -23,13 +19,13 @@ int main(int nargin, char* args[]) {
 
 	//Validate the number of arguments passed in
 	if(nargin != 2){
-		cout << "Error: This program takes exactly one argument, the file to be read." << endl;
+		std::cerr << "Error: This program takes exactly one argument, the file to be read." << std::endl;
 		return 0;
 	}
 
 	//Validate the file is valid
 	if(!validateFile(args[1])){
-		cout << "Bad File!" << endl;
+		std::cerr << "Bad File!" << std::endl;
 		return 0;
 	}
 
