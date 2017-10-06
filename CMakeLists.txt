@@ -3,6 +3,7 @@ project(CS236_Lab)
 
 set(CMAKE_CXX_STANDARD 11)
 
-set(SOURCE_FILES Lexer.cpp Lexer.h Token.cpp Token.h InputChars.cpp InputChars.h Parser.cpp Parser.h SchemeClass.cpp SchemeClass.h FactClass.cpp FactClass.h RuleClass.cpp RuleClass.h QueryClass.cpp QueryClass.h)
+set(SOURCE_FILES Lexer.cpp Lexer.h Token.cpp Token.h InputChars.cpp InputChars.h Parser.cpp Parser.h Schemes.cpp
+        Schemes.h Facts.cpp Facts.h Rules.cpp Rules.h Queries.cpp Queries.h Scheme.cpp Scheme.h ID.cpp ID.h)
 add_executable(Lab main.cpp ${SOURCE_FILES})
 add_executable(testing ${SOURCE_FILES} testMain.cpp)

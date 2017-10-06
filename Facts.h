@@ -6,7 +6,7 @@
 #define CS236_LAB_FACTCLASS_H
 
 
-class FactClass {
+class Facts {
 
 };
 

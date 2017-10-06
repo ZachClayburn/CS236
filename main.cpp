@@ -17,7 +17,7 @@ bool validateFile(const char* fileName);
 int main(int nargin, char* args[]) {
 
 	//Variable declaration
-
+	Parser* parser = nullptr;
 	//Validate the number of arguments passed in
 	if(nargin != 2){
 		std::cerr << "Error: This program takes exactly one argument, the file to be read." << std::endl;
@@ -38,13 +38,14 @@ int main(int nargin, char* args[]) {
 	//lexer.printTokens();
 
 	try {
-		Parser parser(lexer);
+		parser = new Parser(lexer);
 
 	} catch (Token& token){
-		std::cout << "Failure!"
+		std::cout << "Failure!";
 		std::cout << "Offending Token: " << token.toString() << std::endl;
 	}
 
+	delete parser;
 
 	return 0;
 }

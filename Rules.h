@@ -6,7 +6,7 @@
 #define CS236_LAB_RULECLASS_H
 
 
-class RuleClass {
+class Rules {
 
 };
 

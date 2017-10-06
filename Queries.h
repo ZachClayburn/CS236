@@ -6,7 +6,7 @@
 #define CS236_LAB_QUERYCLASS_H
 
 
-class QueryClass {
+class Queries {
 
 };
 
