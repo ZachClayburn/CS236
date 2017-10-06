@@ -1,18 +1,62 @@
-//
-// Created by zach on 9/18/17.
-//
-
 #include <iostream>
-#include "Token.h"
-#include "InputChars.h"
+#include <vector>
+#include <fstream>
+#include "Lexer.h"
+#include "Parser.h"
 
-int main(int nargin, char* args[]){
 
-	std::string string = "Hello, world!";
+/**
+ * Validates that file exists
+ *
+ * This function will attempt to open the file to verify that it exists
+ * @param fileName The name of the file to be validated
+ * @return true if the file exists, false otherwise
+ */
+bool validateFile(const char* fileName);
 
-	for(auto &point : string){
-		std::cout << point << std::endl;
+int main(int nargin, char* args[]) {
+
+	//Variable declaration
+	Parser* parser = nullptr;
+	//Validate the number of arguments passed in
+	if(nargin != 2){
+		std::cerr << "Error: This program takes exactly one argument, the file to be read." << std::endl;
+		return 0;
 	}
 
+	//Validate the file is valid
+	if(!validateFile(args[1])){
+		std::cerr << "Bad File!" << std::endl;
+		return 0;
+	}
+
+
+	Lexer lexer(args[1]);
+
+
+	//Requirement for Project1
+	lexer.printTokens();
+/*
+	try {
+		parser = new Parser(lexer);
+
+	} catch (Token& token){
+		std::cout << "Failure!";
+		std::cout << "Offending Token: " << token.toString() << std::endl;
+	}
+
+	std::cout << parser->toString();
+
+	delete parser;
+*/
 	return 0;
+}
+
+bool validateFile(const char *fileName) {
+
+	std::ifstream fs;
+	fs.open(fileName);
+	bool tf = fs.is_open();
+	fs.close();
+	return tf;
 }

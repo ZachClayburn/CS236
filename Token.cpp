@@ -11,6 +11,19 @@ Token::Token(int lineIn, std::string stringIn,Token::types typeIn){
 	this->string = stringIn;
 	this->type = typeIn;
 
+	if(type == Token::ID){
+		if(string == "Schemes"){
+			type = Token::SCHEMES;
+		}else if(string == "Facts"){
+			type = Token::FACTS;
+		}else if(string == "Rules"){
+			type = Token::RULES;
+		}else if(string == "Queries"){
+			type = Token::QUERIES;
+		}
+	}
+
+
 }
 
 std::string Token::toString()const{

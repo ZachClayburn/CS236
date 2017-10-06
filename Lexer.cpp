@@ -149,19 +149,10 @@ void Lexer::addID(InputChars &input, char next, int currentLine) {
 }
 
 void Lexer::cleanup() {
-	//todo remove all comment tokens after the Lexer is done
-	//todo make the Token constructor do keyword conversions
-	for (auto &token : tokens) {
-		if(token.type == Token::ID){
-			if(token.string == "Schemes"){
-				token.setType(Token::SCHEMES);
-			}else if(token.string == "Facts"){
-				token.setType(Token::FACTS);
-			}else if(token.string == "Rules"){
-				token.setType(Token::RULES);
-			}else if(token.string == "Queries"){
-				token.setType(Token::QUERIES);
-			}
+	for(auto i = tokens.begin(); i != tokens.end(); i++){
+		if(i->getType() == Token::COMMENT) {
+			tokens.erase(i);
+			i--;
 		}
 	}
 }

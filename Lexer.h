@@ -105,10 +105,10 @@ private:
 	void addID(InputChars& input, char next, int currentLine);
 
 	/**
-	 * Cleans up the keyword Tokens
+	 * Cleans up the comment Tokens.
 	 *
-	 * All keyword Tokens are all saved as ID, so this function runs through the vector of Tokens and changes all of the
-	 * ID tokens that have keywords as their strings
+	 * The Parser object does not expect any COMMENT Tokens, so this goes through and deletes them after it has read
+	 * them all in
 	 */
 	void cleanup();
 
