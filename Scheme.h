@@ -35,7 +35,7 @@ private:
 	/**
 	 * The ID that represents the given Scheme
 	 */
-	ID* schemeID;
+	ID schemeID;
 
 	/**
 	 * A vector of all Ids in a Scheme, should not be empty
