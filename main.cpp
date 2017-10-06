@@ -2,6 +2,7 @@
 #include <vector>
 #include <fstream>
 #include "Lexer.h"
+#include "Parser.h"
 
 
 /**
@@ -32,8 +33,18 @@ int main(int nargin, char* args[]) {
 
 	Lexer lexer(args[1]);
 
+
 	//Requirement for Project1
-	lexer.printTokens();
+	//lexer.printTokens();
+
+	try {
+		Parser parser(lexer);
+
+	} catch (Token& token){
+		std::cout << "Failure!"
+		std::cout << "Offending Token: " << token.toString() << std::endl;
+	}
+
 
 	return 0;
 }
@@ -41,9 +52,8 @@ int main(int nargin, char* args[]) {
 bool validateFile(const char *fileName) {
 
 	std::ifstream fs;
-	bool tf = false;
 	fs.open(fileName);
-	tf = fs.is_open();
+	bool tf = fs.is_open();
 	fs.close();
 	return tf;
 }

@@ -52,16 +52,22 @@ void Lexer::printTokens() {
 
 }
 
-Token Lexer::getNext() {
+Token Lexer::getNext(Token::types type) {
 	Token rValue = tokens.at(pos);
+	if(rValue.getType() != type){
+		throw rValue;
+	}
 	pos++;
 	return rValue;
 }
 
-Token Lexer::peekNext() {
-	Token rValue = tokens.at(pos);
-	return rValue;
+bool Lexer::checkNextType(Token::types type) {
+	if(pos >= tokens.size()) {
+		return false;
+	}
+	return tokens.at(pos).getType() == type;
 }
+
 
 //---------------------------------------------------------------------------------------------------------------------
 // Private functions
@@ -143,6 +149,8 @@ void Lexer::addID(InputChars &input, char next, int currentLine) {
 }
 
 void Lexer::cleanup() {
+	//todo remove all comment tokens after the Lexer is done
+	//todo make the Token constructor do keyword conversions
 	for (auto &token : tokens) {
 		if(token.type == Token::ID){
 			if(token.string == "Schemes"){

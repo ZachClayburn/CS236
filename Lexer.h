@@ -25,20 +25,23 @@ public:
 	Lexer(const char* fileName);
 
 	/**
-	 * Gets the next token.
+	 * Gets the next Token and checks the Token type.
 	 *
-	 * Returns the next token and advances the internal iterator to the next token
+	 * Returns the next Token and advances the internal iterator to the next token
+	 * @param type The Token type that is expected next
 	 * @return A copy of the next token in the file
 	 */
-	Token getNext();
+	Token getNext(Token::types type);
 
 	/**
-	 * Peeks at the next token.
+	 * Checks if the next token is the given type.
 	 *
-	 * Returns the next token, but does not advance the iterator
-	 * @return A copy of the next token in the file
+	 * Checks if the Token that is next to be returned is the has the same type as the parameter type. Will return false
+	 * if is the iterator is greater than the size of the Token vector.
+	 * @param type The type you are checking against
+	 * @return true if the next token type matches the param type, false otherwise
 	 */
-	Token peekNext();
+	bool checkNextType(Token::types type);
 
 	/**
 	 * Prints all tokens to the standard output.
