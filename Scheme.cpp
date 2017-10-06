@@ -6,19 +6,18 @@
 
 Scheme::Scheme(Lexer &lexer):
 schemeID(lexer){
-	//schemeID = new ID(lexer);
 	lexer.getNext(Token::LEFT_PAREN);
-	IDList.emplace_back(ID(lexer));
 	addIDToList(lexer);
 	lexer.getNext(Token::RIGHT_PAREN);
 
 }
 
 void Scheme::addIDToList(Lexer &lexer) {
-	lexer.getNext(Token::COMMA);
 	IDList.emplace_back(ID(lexer));
-	if(lexer.checkNextType(Token::COMMA))
+	if(lexer.checkNextType(Token::COMMA)) {
+		lexer.getNext(Token::COMMA);
 		addIDToList(lexer);
+	}
 }
 
 Scheme::~Scheme() {

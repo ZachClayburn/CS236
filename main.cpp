@@ -41,8 +41,10 @@ int main(int nargin, char* args[]) {
 		parser = new Parser(lexer);
 
 	} catch (Token& token){
-		std::cout << "Failure!";
+		std::cout << "Failure!" << std::endl;
 		std::cout << "Offending Token: " << token.toString() << std::endl;
+		delete parser;
+		return 0;
 	}
 
 	std::cout << parser->toString();
