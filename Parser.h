@@ -29,6 +29,24 @@ public:
 
 	~Parser();
 
+	/**
+	 * Get a string that contains the contents of the Parser.
+	 *
+	 * Generates a string that in the following format:
+	 * Schemes(number of Schemes)
+	 *   list of schemes
+	 * Facts(number of Facts)
+	 *   list of Facts
+	 * Rules(number of Rules)
+	 *   list of Rules
+	 * Queries(number of Queries)
+	 *   list of Queries
+	 * Domain(size of domain)
+	 *   list of strings in domain
+	 * @return
+	 */
+	std::string toString();
+
 	//todo Make destructors work
 
 private:

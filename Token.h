@@ -56,6 +56,14 @@ public:
 	types getType()const;
 
 	/**
+	 * Get the Tokens String.
+	 *
+	 * Unlike toString, this function only returns the contents of the string data member
+	 * @return The contents of the string Data Member
+	 */
+	std::string getString();
+
+	/**
 	 * Get the contents of the Token in a string.
 	 *
 	 * Gets a string of the contents in the form (TYPE,"string",line)

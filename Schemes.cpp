@@ -12,6 +12,17 @@ Schemes::Schemes(Lexer &lexer) {
 
 void Schemes::addScheme(Lexer &lexer) {
 	schemeList.emplace_back(Scheme(lexer));
-	if(lexer.checkNextType(Token::LEFT_PAREN))
+	if(lexer.checkNextType(Token::ID))
 		addScheme(lexer);
+}
+
+std::string Schemes::toString() {
+	std::stringstream ss;
+
+	ss << "Schemes(" << schemeList.size() << "):" << std::endl;
+	for(auto &scheme : schemeList){
+		ss << "  " << scheme.toString() << std::endl;
+	}
+
+	return ss.str();
 }

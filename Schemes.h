@@ -26,6 +26,16 @@ public:
 	 */
 	Schemes(Lexer& lexer);
 
+	/**
+	 * Get a string containing all of the Schemes.
+	 *
+	 * Returns a string in the following format:
+	 * Schemes(number of Schemes)
+	 *   list of schemes
+	 * @return A string containing the Schemes
+	 */
+	std::string toString();
+
 private:
 
 	/**

@@ -54,3 +54,7 @@ Token::types Token::getType()const{
 void Token::setType(types typeIn){
 	type = typeIn;
 }
+
+std::string Token::getString() {
+	return string;
+}

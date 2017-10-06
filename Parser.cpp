@@ -19,3 +19,15 @@ Parser::~Parser() {
 	//delete rules;
 	//delete queries;
 }
+
+std::string Parser::toString() {
+	std::stringstream ss;
+
+	ss << schemes->toString();
+	//ss << facts->toString();
+	//ss << rules->toString();
+	//ss << queries->toString();
+	//ss << domainToString(); todo create domainToString()
+
+	return ss.str();
+}

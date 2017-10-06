@@ -20,6 +20,14 @@ public:
 	 */
 	ID(Lexer& lexer);
 
+	/**
+	 * Get the IDs string.
+	 *
+	 * Get the string of the Token contained in ID
+	 * @return The IDs string;
+	 */
+	std::string toString();
+
 private:
 
 	Token token;

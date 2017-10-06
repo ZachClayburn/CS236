@@ -13,7 +13,7 @@ class Scheme {
 public:
 
 	/**
-	 * Constructs a scheme
+	 * Constructs a scheme.
 	 *
 	 * Constructs a scheme from the Tokens in lexer
 	 * @param lexer The Lexer object containing all of the Tokens
@@ -21,6 +21,15 @@ public:
 	Scheme(Lexer& lexer);
 
 	~Scheme();
+
+	/**
+	 * Get a string of the schemes contents.
+	 *
+	 * Returns a string that has the contents of the string in the format:
+	 * SchemeID(ID1,...,IDn)
+	 * @return
+	 */
+	std::string toString();
 
 private:
 	/**

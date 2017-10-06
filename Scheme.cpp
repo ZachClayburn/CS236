@@ -23,3 +23,18 @@ void Scheme::addIDToList(Lexer &lexer) {
 Scheme::~Scheme() {
 
 }
+
+std::string Scheme::toString() {
+	std::stringstream ss;
+
+	ss << schemeID->toString() << '(';
+	for(int i = 0; i < IDList.size(); i++){
+		ss << IDList.at(i).toString();
+		if(i < IDList.size() - 1){
+			ss << ',';
+		}
+	}
+	ss << ')';
+
+	return ss.str();
+}

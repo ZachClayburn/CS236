@@ -45,6 +45,8 @@ int main(int nargin, char* args[]) {
 		std::cout << "Offending Token: " << token.toString() << std::endl;
 	}
 
+	std::cout << parser->toString();
+
 	delete parser;
 
 	return 0;
