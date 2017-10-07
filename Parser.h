@@ -47,13 +47,12 @@ public:
 	 */
 	std::string toString();
 
-	//todo Make destructors work
 
 private:
 
 	Schemes* schemes;
 
-	//Facts* facts;
+	Facts* facts;
 
 	//Rules* rules;
 

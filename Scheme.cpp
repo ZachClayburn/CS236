@@ -12,14 +12,6 @@ schemeID(lexer){
 
 }
 
-void Scheme::addIDToList(Lexer &lexer) {
-	IDList.emplace_back(ID(lexer));
-	if(lexer.checkNextType(Token::COMMA)) {
-		lexer.getNext(Token::COMMA);
-		addIDToList(lexer);
-	}
-}
-
 Scheme::~Scheme() {
 
 }
@@ -37,4 +29,12 @@ std::string Scheme::toString() {
 	ss << ')';
 
 	return ss.str();
+}
+
+void Scheme::addIDToList(Lexer &lexer) {
+	IDList.emplace_back(ID(lexer));
+	if(lexer.checkNextType(Token::COMMA)) {
+		lexer.getNext(Token::COMMA);
+		addIDToList(lexer);
+	}
 }

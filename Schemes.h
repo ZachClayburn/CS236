@@ -16,10 +16,11 @@
 class Schemes {
 
 public:
+
 	/**
 	 * Constructs a Schemes object and parses the schemes.
 	 *
-	 * Constructs a SchemeClass object and then parses through the Tokens in lexer until either all of the schemes have been
+	 * Constructs a Schemes object and then parses through the Tokens in lexer until either all of the schemes have been
 	 * parsed through, or an illegal token is read and that token is thrown
 	 * @throws any illegal Token found is thrown
 	 * @param lexer The Lexer object that holds all of the Token objects

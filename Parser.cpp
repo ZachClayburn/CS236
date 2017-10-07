@@ -7,7 +7,7 @@
 Parser::Parser(Lexer &lexer) {
 
 	schemes = new Schemes(lexer);
-	//facts = NULL;
+	facts = new Facts(lexer);
 	//rules = NULL;
 	//queries = NULL;
 
@@ -15,7 +15,7 @@ Parser::Parser(Lexer &lexer) {
 
 Parser::~Parser() {
 	delete schemes;
-	//delete facts;
+	delete facts;
 	//delete rules;
 	//delete queries;
 }
@@ -24,10 +24,11 @@ std::string Parser::toString() {
 	std::stringstream ss;
 
 	ss << schemes->toString();
-	//ss << facts->toString();
+	ss << facts->toString();
 	//ss << rules->toString();
 	//ss << queries->toString();
-	//ss << domainToString(); todo create domainToString()
+	//ss << domainToString();
+	ss << facts->domainTostring();
 
 	return ss.str();
 }
