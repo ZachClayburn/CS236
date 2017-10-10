@@ -4,6 +4,9 @@
 
 #include "Parameter.h"
 
+Parameter::Parameter(Lexer& lexer) :
+		token(0,"YouShouldNeverSeeThis!",Token::WHITESPACE) {}
+
 Parameter::Parameter(Lexer &lexer, Token::types type):
 		token(lexer.getNext(type)){}
 

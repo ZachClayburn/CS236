@@ -21,6 +21,7 @@ std::string Rule::toString() {
 		}
 	}
 
+	ss << '.';
 
 	return ss.str();
 }

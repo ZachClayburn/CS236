@@ -27,7 +27,6 @@ std::string Parser::toString() {
 	ss << facts->toString();
 	ss << rules->toString();
 	//ss << queries->toString();
-	//ss << domainToString();
 	ss << facts->domainTostring();
 
 	return ss.str();

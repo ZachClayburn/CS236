@@ -8,6 +8,11 @@
 
 class Queries {
 
+public:
+
+private:
+
+
 };
 
 

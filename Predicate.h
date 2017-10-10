@@ -10,6 +10,7 @@
 #include "ID.h"
 #include "String.h"
 #include "Opperator.h"
+#include "Expression.h"
 
 class Predicate {
 
@@ -17,13 +18,15 @@ public:
 
 	Predicate(Lexer& lexer);
 
+	//~Predicate();todo sort out memory leaks
+
 	std::string toString();
 
 private:
 
 	ID predicateID;
 
-	std::vector<Parameter> parameterList;
+	std::vector<Parameter*> parameterList;
 
 	void addParameter(Lexer& lexer);
 

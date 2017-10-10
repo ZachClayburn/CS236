@@ -16,7 +16,7 @@ public:
 	/**
 	 * Construct a String object.
 	 *
-	 * Constructs a String object that is designed to hole a STRING Token
+	 * Constructs a String object that is designed to hold a STRING Token
 	 * @param lexer
 	 */
 	String(Lexer& lexer);

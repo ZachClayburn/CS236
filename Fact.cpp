@@ -22,7 +22,7 @@ std::string Fact::toString() {
 			ss << ',';
 		}
 	}
-	ss << ')';
+	ss << ").";
 	return ss.str();
 }
 

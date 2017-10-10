@@ -13,6 +13,8 @@ Rules::Rules(Lexer &lexer) {
 std::string Rules::toString() {
 	std::stringstream ss;
 
+	ss << "Rules(" << rulesList.size() << "):" << std::endl;
+
 	for(auto &rule : rulesList){
 		ss << "  " << rule.toString() << std:: endl;
 	}
