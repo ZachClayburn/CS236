@@ -4,6 +4,9 @@
 
 #include "Parameter.h"
 
+Parameter::Parameter(Lexer &lexer, Token::types type):
+		token(lexer.getNext(type)){}
+
 std::string Parameter::toString() {
 	return token.getString();
 }

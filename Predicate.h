@@ -8,6 +8,7 @@
 
 #include "Lexer.h"
 #include "ID.h"
+#include "String.h"
 
 class Predicate {
 
@@ -19,11 +20,11 @@ public:
 
 private:
 
-	ID predicateId;
+	ID predicateID;
 
+	std::vector<Parameter> parameterList;
 
-
-	void addParameter();
+	void addParameter(Lexer& lexer);
 
 };
 

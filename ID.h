@@ -7,8 +7,9 @@
 
 #include "Token.h"
 #include "Lexer.h"
+#include "Parameter.h"
 
-class ID {
+class ID : public Parameter{
 
 public:
 
@@ -20,17 +21,9 @@ public:
 	 */
 	ID(Lexer& lexer);
 
-	/**
-	 * Get the IDs string.
-	 *
-	 * Get the string of the Token contained in ID
-	 * @return The IDs string;
-	 */
-	std::string toString();
 
 private:
 
-	Token token;
 
 };
 

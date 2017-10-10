@@ -7,8 +7,9 @@
 
 
 #include "Lexer.h"
+#include "Parameter.h"
 
-class String {
+class String : public Parameter {
 
 public:
 
@@ -20,19 +21,8 @@ public:
 	 */
 	String(Lexer& lexer);
 
-	/**
-	 * Get the string representing the contents of this String
-	 *
-	 * Get the string of the STRING token in this String for printing
-	 * @return a std::string containing the string of the STRING Token in this String
-	 */
-	std::string toString();
 private:
 
-	/**
-	 * The STRING Token that this String represents
-	 */
-	Token token;
 
 };
 

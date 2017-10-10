@@ -6,7 +6,7 @@
 
 HeadPredicate::HeadPredicate(Lexer &lexer):
 headID(lexer){
-	lexer.checkNextType(Token::LEFT_PAREN);
+	lexer.getNext(Token::LEFT_PAREN);
 	addID(lexer);
 	lexer.getNext(Token::RIGHT_PAREN);
 

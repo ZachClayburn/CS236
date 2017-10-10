@@ -13,7 +13,14 @@ class Parameter {
 
 public:
 
+	Parameter(Lexer& lexer,Token::types type);
 
+	/**
+ * Get the Parameter's string.
+ *
+ * Get the string of the Token contained in Parameter
+ * @return The IDs string;
+ */
 	std::string toString();
 
 private:

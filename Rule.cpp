@@ -7,10 +7,29 @@
 Rule::Rule(Lexer &lexer):
 head(lexer){
 	lexer.getNext(Token::COLON_DASH);
-
+	addPredicate(lexer);
 
 }
 
 std::string Rule::toString() {
-	return std::__cxx11::string();
+	std::stringstream ss;
+	ss << head.toString() << " :- ";
+	for(int i = 0; i < predicateList.size(); i++){
+		ss << predicateList.at(i).toString();
+		if(i < predicateList.size()-1){
+			ss << ',';
+		}
+	}
+
+
+	return ss.str();
+}
+
+void Rule::addPredicate(Lexer& lexer) {
+	predicateList.emplace_back(Predicate(lexer));
+	if(lexer.checkNextType(Token::COMMA)){
+		lexer.getNext(Token::COMMA);
+		addPredicate(lexer);
+	}
+
 }

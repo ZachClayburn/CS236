@@ -5,9 +5,5 @@
 #include "String.h"
 
 String::String(Lexer &lexer):
-token(lexer.getNext(Token::STRING)){
-}
+Parameter(lexer,Token::STRING){}
 
-std::string String::toString() {
-	return token.getString();
-}

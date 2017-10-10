@@ -9,6 +9,7 @@
 #include "Lexer.h"
 #include "ID.h"
 #include "HeadPredicate.h"
+#include "Predicate.h"
 
 class Rule {
 
@@ -32,8 +33,11 @@ public:
 
 private:
 
-HeadPredicate head;
+	HeadPredicate head;
 
+	std::vector<Predicate> predicateList;
+
+	void addPredicate(Lexer& lexer);
 };
 
 

@@ -5,8 +5,5 @@
 #include "ID.h"
 
 ID::ID(Lexer &lexer):
-token(lexer.getNext(Token::ID)) {}
+Parameter(lexer,Token::ID){}
 
-std::string ID::toString() {
-	return token.getString();
-}
