@@ -8,6 +8,8 @@ Fact::Fact(Lexer &lexer):
 factID(lexer){
 	lexer.getNext(Token::LEFT_PAREN);
 	addString(lexer);
+	lexer.getNext(Token::RIGHT_PAREN);
+	lexer.getNext(Token::PERIOD);
 
 }
 

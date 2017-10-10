@@ -54,7 +54,7 @@ private:
 
 	Facts* facts;
 
-	//Rules* rules;
+	Rules* rules;
 
 	//Queries* queries;
 

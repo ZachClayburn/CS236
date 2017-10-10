@@ -37,5 +37,13 @@ void Facts::addFact(Lexer &lexer) {
 }
 
 void Facts::buildDomain() {
-//todo Finish buildDomain
+	for (auto &fact : factList){
+		auto temp = fact.getStrings();
+		for (auto &string: temp){
+			domain.push_back(string.toString());
+		}
+	}
+	std::sort(domain.begin(),domain.end());
+	auto it = std::unique(domain.begin(),domain.end());
+	domain.resize(std::distance(domain.begin(),it));
 }
