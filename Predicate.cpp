@@ -14,7 +14,7 @@ predicateID(lexer){
 std::string Predicate::toString() {
 	std::stringstream ss;
 	ss << predicateID.toString() << '(';
-	for(int i = 0; i < parameterList.size(); i++){
+	for(int i = 0; i < parameterList.size(); i++){//todo Fix printing for Expressions with Operations
 		ss << parameterList.at(i).toString();
 		if(i < parameterList.size()-1){
 			ss << ',';
@@ -31,8 +31,10 @@ void Predicate::addParameter(Lexer& lexer) {
 		parameterList.emplace_back(ID(lexer));
 	}else if(lexer.checkNextType(Token::STRING)){
 		parameterList.emplace_back(String(lexer));
-	} else if(lexer.checkNextType(Token::ADD)||lexer.checkNextType(Token::MULTIPLY)){
-		//todo set up full polymorphism for Parameter to include Operators
+	} else if(lexer.checkNextType(Token::ADD)){//todo Make sure this works correctly
+		parameterList.emplace_back(Opperator(lexer,Token::ADD));
+	} else if(lexer.checkNextType(Token::MULTIPLY)){
+		parameterList.emplace_back(Opperator(lexer,Token::MULTIPLY));
 	}
 	if(lexer.checkNextType(Token::COMMA)){
 		lexer.getNext(Token::COMMA);

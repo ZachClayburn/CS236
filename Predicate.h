@@ -9,6 +9,7 @@
 #include "Lexer.h"
 #include "ID.h"
 #include "String.h"
+#include "Opperator.h"
 
 class Predicate {
 
