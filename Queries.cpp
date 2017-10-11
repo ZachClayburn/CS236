@@ -15,7 +15,7 @@ std::string Queries::toString() {
 
 	ss << "Queries(" << queryList.size() << "):" << std::endl;
 	for(auto &query : queryList)
-		ss << "  " << query.toString() << std::endl;
+		ss << "  " << query.toString() << "?" << std::endl;
 
 	return ss.str();
 }
