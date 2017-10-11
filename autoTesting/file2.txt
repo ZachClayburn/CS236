@@ -1,0 +1,7 @@
+#Simplest possible case, one Scheme and one Query
+Schemes:
+  Hello(W,O,R,L,D)
+Facts:
+Rules:
+Queries:
+  Foo(B,A,R)?

@@ -1,0 +1,7 @@
+Schemes:
+  Hello(W,O,R,L,D)
+Facts:
+  Thing(A,B,C)#IDs in Facts
+Rules:
+Queries:
+  Foo(B,A,R)?

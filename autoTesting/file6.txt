@@ -1,0 +1,14 @@
+#Multiple Schemes, Facts, Rules, and Queries.
+Schemes:
+  Person(Name,address,address2,gender,age)
+  Dog(Name,Owner,age)
+Facts:
+  Person('Zach','212 elm street','N/A','male','27').
+  Person('Meg','212 elm street','N/A','female','23').
+  Dog('Nala','Joe','2').
+Rules:
+  Owns(A,B) :- Person(A,B,C,D,E),Dog(F,A,G).
+  Married(A,B) :- Person(A,B,C,D,E),Person(F,B,C,G,H).
+Queries:
+  Married('Meg','Zach')?
+  Owns('Zach','Nala')?

@@ -1,0 +1,1 @@
+Schemes:Hello(W,O,R,L,D)Facts:Rules:Queries:Foo(B,A,R)?#everything in one line, still legal

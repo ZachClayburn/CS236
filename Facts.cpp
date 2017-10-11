@@ -24,8 +24,10 @@ std::string Facts::toString() {
 std::string Facts::domainTostring() {
 	std::stringstream ss;
 	ss << "Domain(" << domain.size() << "):" << std::endl;
-	for(auto &string : domain){
-		ss << string << std::endl;
+	for(int i = 0; i < domain.size(); i++){
+		ss << domain.at(i);
+		if(i < domain.size()-1)
+			ss << std::endl;
 	}
 	return ss.str();
 }

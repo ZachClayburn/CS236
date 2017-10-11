@@ -1,0 +1,4 @@
+Schemes:#Just the keywords, should fail on schemes
+Facts:
+Rules:
+Queries:

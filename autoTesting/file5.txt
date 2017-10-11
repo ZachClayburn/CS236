@@ -1,0 +1,10 @@
+#multiple Schemes and facts
+Schemes:
+  Person(Name,address,address2,gender,age)
+  Dog(Name,Owner,age)
+Facts:
+  Person('Zach','212 elm street','N/A','male','27').
+  Person('Meg','212 elm street','N/A','female','23').
+Rules:
+Queries:
+  Foo(B,A,R)?

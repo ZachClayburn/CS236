@@ -1,0 +1,10 @@
+Schemes:
+  Hello(W,O,R,L,D)
+Facts:
+Rules:
+  Hi(A,A,A,A,A) :- Hi(A,A,A,A,A),Hi(A,A,A,A,A),Hi(A,A,A,A,A).
+  Hi(A,A) :- Hi(A,A,A),Hi(A,A,A).
+  Hi(A) :- Hi(A,A).
+  Hi() :- Hi(A,A).#Testing having variable amounts of IDs in the Predicate (it should fail on line 8, with a right paren
+Queries:
+  Foo(B,A,R)?

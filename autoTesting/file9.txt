@@ -1,0 +1,8 @@
+#Comment at the beginning
+Schemes:
+  Hello(W,O,R,L,D)
+Facts:
+Rules:
+Queries:
+  Foo(B,A,R)?
+#Comment at the end

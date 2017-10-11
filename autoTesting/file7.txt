@@ -1,0 +1,9 @@
+Schemes:
+  Hello(W,O,R,L,D)
+Facts:
+  Thing('A','B','C').
+Rules:
+  This(A,B) :- Hey((A+(A+(A+B))),('A'*B)),Sup(A,B,(A+'B')). #|Testing complicated predicates, with lots of
+  parentheses and mixed expressions to handle|#
+Queries:
+  Foo(B,A,R)?

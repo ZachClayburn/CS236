@@ -1,0 +1,6 @@
+Schemes:
+  Hello(W,O,R,L,D)
+Rules:#Rules and facts swapped
+Facts:
+Queries:
+  Foo(B,A,R)?

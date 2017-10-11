@@ -42,11 +42,12 @@ int main(int nargin, char* args[]) {
 
 	} catch (Token& token){
 		std::cout << "Failure!" << std::endl;
-		std::cout << "Offending Token: " << token.toString() << std::endl;
+		std::cout << "  " << token.toString();
 		delete parser;
 		return 0;
 	}
 
+	std::cout << "Success!";
 	std::cout << parser->toString();
 
 	delete parser;
