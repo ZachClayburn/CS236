@@ -47,7 +47,7 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
-	std::cout << "Success!";
+	std::cout << "Success!" << std::endl;
 	std::cout << parser->toString();
 
 	delete parser;

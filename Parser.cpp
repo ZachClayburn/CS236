@@ -11,6 +11,8 @@ Parser::Parser(Lexer &lexer) {
 	rules = new Rules(lexer);
 	queries = new Queries(lexer);
 
+	lexer.getNext(Token::ENDOFFILE);
+
 }
 
 Parser::~Parser() {
