@@ -3,3 +3,11 @@
 //
 
 #include "Query.h"
+
+Query::Query(Lexer &lexer) {
+
+}
+
+std::string Query::toString() {
+	return std::string();
+}

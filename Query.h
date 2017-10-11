@@ -6,7 +6,16 @@
 #define CS236_LAB_QUERY_H
 
 
+#include "Lexer.h"
+
 class Query {
+
+public:
+	Query(Lexer& lexer);
+
+	std::string toString();
+
+private:
 
 };
 

@@ -27,7 +27,7 @@ public:
 	 * Returns a string formatted for printing.
 	 *
 	 * Get a string of the contents of the Rule, formatted for printing
-	 * @return A std::string formated for printing.
+	 * @return A std::string formatted for printing.
 	 */
 	std::string toString();
 
