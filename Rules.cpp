@@ -25,6 +25,7 @@ std::string Rules::toString() {
 void Rules::addRule(Lexer &lexer) {
 	if(lexer.checkNextType(Token::ID)){
 		rulesList.emplace_back(Rule(lexer));
+		lexer.getNext(Token::PERIOD);
 		addRule(lexer);
 	}
 

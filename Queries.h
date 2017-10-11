@@ -5,8 +5,8 @@
 #ifndef CS236_LAB_QUERYCLASS_H
 #define CS236_LAB_QUERYCLASS_H
 
-#include "Query.h"
 #include "Lexer.h"
+#include "Predicate.h"
 
 class Queries {
 
@@ -18,7 +18,7 @@ public:
 
 private:
 
-	std::vector<Query> queryList;
+	std::vector<Predicate> queryList;
 
 	void addQuery(Lexer& lexer);
 

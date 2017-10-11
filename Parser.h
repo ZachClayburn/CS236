@@ -56,7 +56,7 @@ private:
 
 	Rules* rules;
 
-	//Queries* queries;
+	Queries* queries;
 
 };
 

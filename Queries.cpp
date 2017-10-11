@@ -7,7 +7,7 @@
 Queries::Queries(Lexer &lexer) {
 	lexer.getNext(Token::QUERIES);
 	lexer.getNext(Token::COLON);
-
+	addQuery(lexer);
 }
 
 std::string Queries::toString() {
@@ -15,7 +15,7 @@ std::string Queries::toString() {
 
 	ss << "Queries(" << queryList.size() << "):" << std::endl;
 	for(auto &query : queryList)
-		ss << "  " << query.toString();
+		ss << "  " << query.toString() << std::endl;
 
 	return ss.str();
 }
@@ -23,6 +23,8 @@ std::string Queries::toString() {
 void Queries::addQuery(Lexer &lexer) {
 	if(lexer.checkNextType(Token::ID)){
 		queryList.emplace_back(lexer);
+		lexer.getNext(Token::Q_MARK);
+		addQuery(lexer);
 	}
 
 }
