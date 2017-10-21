@@ -8,6 +8,7 @@
 
 #include "Lexer.h"
 #include "Fact.h"
+#include <set>
 #include <algorithm>
 
 class Facts {
@@ -53,7 +54,8 @@ private:
 	/**
 	 * A vector containing the domain of the Facts, which is an ordered list of all of the unique Strings in the Facts
 	 */
-	std::vector<std::string> domain;
+	 std::set<std::string> domain;
+	//std::vector<std::string> domain;
 
 	/**
 	 * Adds Fact object to the factList recursively.

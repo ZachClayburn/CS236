@@ -24,10 +24,12 @@ std::string Facts::toString() {
 std::string Facts::domainTostring() {
 	std::stringstream ss;
 	ss << "Domain(" << domain.size() << "):" << std::endl;
-	for(int i = 0; i < domain.size(); i++){
-		ss << "  " << domain.at(i);
+	int i = 0;
+	for (const auto &it : domain) {
+		ss << "  " << it;
 		if(i < domain.size()-1)
 			ss << std::endl;
+		i++;
 	}
 	return ss.str();
 }
@@ -42,10 +44,7 @@ void Facts::buildDomain() {
 	for (auto &fact : factList){
 		auto temp = fact.getStrings();
 		for (auto &string: temp){
-			domain.push_back(string.toString());
+			domain.insert(string.toString());
 		}
 	}
-	std::sort(domain.begin(),domain.end());
-	auto it = std::unique(domain.begin(),domain.end());
-	domain.resize(std::distance(domain.begin(),it));
 }
