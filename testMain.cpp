@@ -1,62 +1,20 @@
 #include <iostream>
-#include <vector>
+#include <list>
 #include <fstream>
-#include "Lexer.h"
-#include "Parser.h"
+#include "Table.h"
+#include "Row.h"
 
+int main() {
 
-/**
- * Validates that file exists
- *
- * This function will attempt to open the file to verify that it exists
- * @param fileName The name of the file to be validated
- * @return true if the file exists, false otherwise
- */
-bool validateFile(const char* fileName);
+	std::string name = "Test";
+	std::list<std::string> colNames = {"1","2","3"};
+	std::list<std::string> row = {"1","2","3"};
 
-int main(int nargin, char* args[]) {
+	Table table(name,colNames);
+	table.addRow(Row(row));
 
-	//Variable declaration
-	Parser* parser = nullptr;
-	//Validate the number of arguments passed in
-	if(nargin != 2){
-		std::cerr << "Error: This program takes exactly one argument, the file to be read." << std::endl;
-		return 0;
-	}
+	std::cout << table.getName();
 
-	//Validate the file is valid
-	if(!validateFile(args[1])){
-		std::cerr << "Bad File!" << std::endl;
-		return 0;
-	}
-
-
-	Lexer lexer(args[1]);
-
-
-	//Requirement for Project1
-	lexer.printTokens();
-/*
-	try {
-		parser = new Parser(lexer);
-
-	} catch (Token& token){
-		std::cout << "Failure!";
-		std::cout << "Offending Token: " << token.toString() << std::endl;
-	}
-
-	std::cout << parser->toString();
-
-	delete parser;
-*/
 	return 0;
 }
 
-bool validateFile(const char *fileName) {
-
-	std::ifstream fs;
-	fs.open(fileName);
-	bool tf = fs.is_open();
-	fs.close();
-	return tf;
-}
