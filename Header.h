@@ -7,8 +7,10 @@
 
 
 #include <string>
+#include <sstream>
 #include <list>
 #include <list>
+#include <vector>
 
 class Header {
 
@@ -16,13 +18,15 @@ public:
 
 	Header(std::list<std::string> colNamesIn);
 
-	std::list<std::string> getColumnNames();
+	std::vector<std::string> getColumnNames();
 
 	size_t size();
 
+	std::string toString();
+
 private:
 
-	std::list<std::string> columnNames;
+	std::vector<std::string> columnNames;
 
 };
 

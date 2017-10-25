@@ -9,6 +9,7 @@
 #include <string>
 #include <list>
 #include <vector>
+#include <sstream>
 #include "Header.h"
 #include "Row.h"
 #include "SelectionKey.h"
@@ -23,9 +24,11 @@ public:
 
 	Table select(std::vector<SelectionKey*> selectionKeys);
 
-	std::list<std::string> getHeaderColumnNames();
+	std::vector<std::string> getHeaderColumnNames();
 
 	void addRow(Row rowIn);
+
+	std::string toString();
 
 	std::string getName();
 

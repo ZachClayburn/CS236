@@ -16,3 +16,13 @@ size_t Row::size() {
 const std::string Row::at(int i) {
 	return contents.at(i);
 }
+
+std::string Row::toString() {
+	std::stringstream ss;
+
+	for (auto &value : contents){
+		ss << value << ' ';
+	}
+
+	return ss.str();
+}

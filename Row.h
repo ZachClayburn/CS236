@@ -8,6 +8,7 @@
 
 #include <list>
 #include <string>
+#include <sstream>
 #include <vector>
 #include <iostream>
 
@@ -20,6 +21,8 @@ public:
 	size_t size();
 
 	const std::string at(int i);
+
+	std::string toString();
 
 private:
 

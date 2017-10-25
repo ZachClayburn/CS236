@@ -31,11 +31,22 @@ Table Table::select(std::vector<SelectionKey*> selectionKeys) {
 	return copy;
 }
 
+std::string Table::toString() {
+	std::stringstream ss;
+	ss << name << std::endl << header.toString() << std::endl;
+
+	for (auto &row : rows){
+		ss << row.toString() << std::endl;
+	}
+
+	return ss.str();
+}
+
 std::string Table::getName() {
 	return name;
 }
 
-std::list<std::string> Table::getHeaderColumnNames() {
+std::vector<std::string> Table::getHeaderColumnNames() {
 	return header.getColumnNames();
 }
 

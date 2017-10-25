@@ -11,7 +11,17 @@ Header::Header(std::list<std::string> colNamesIn) {
 
 }
 
-std::list<std::string> Header::getColumnNames() {
+std::string Header::toString() {
+	std::stringstream ss;
+
+	for(auto &name : columnNames){
+		ss << name << ' ';
+	}
+
+	return ss.str();
+}
+
+std::vector<std::string> Header::getColumnNames() {
 	return columnNames;
 }
 

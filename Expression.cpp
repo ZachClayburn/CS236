@@ -25,7 +25,7 @@ Expression::~Expression() {
 
 }
 
-std::string Expression::toString() {//todo Properly override toString
+std::string Expression::toString() {
 	std::stringstream ss;
 
 	ss << '(' << leftParam->toString() << op->toString() << rightParam->toString() << ')';
