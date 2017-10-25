@@ -81,7 +81,9 @@ void test3(){
 	std::vector<std::string> colNames = {"Col1","Col2"};
 	std::vector<std::string> row1 = {"a","a"};
 	std::vector<std::string> row2 = {"b","a"};
-	std::vector<std::string> row3 = {"c","c"};
+	std::vector<std::string> row3 = {"b","W"};
+	std::vector<std::string> row4 = {"c","c"};
+	std::vector<std::string> row5 = {"c","g"};
 	std::vector<SelectionKey*> keys;
 	bool failed = false;
 
@@ -93,9 +95,10 @@ void test3(){
 	table.addRow(Row(row1));
 	table.addRow(Row(row2));
 	table.addRow(Row(row3));
+	table.addRow(Row(row4));
 
 	control1.addRow(Row(row1));
-	control1.addRow(Row(row3));
+	control1.addRow(Row(row4));
 
 	//Removes any row that doesn't have a match in the first two columns
 	keys.push_back(new ColumnColumnKey(0,1));
@@ -207,7 +210,19 @@ void test5(){
 }
 
 void test6(){
+	//This test checks the rename method
+	std::cout << "Running test 6" << std::endl;
 
+	std::string name = "Test";
+	std::vector<std::string> colNames = {"Col1"};
+	std::vector<std::string> newColNames = {"newCol1"};
+	std::vector<std::string> row1 = {"a"};
+	std::vector<std::string> row2 = {"b"};
+	std::vector<std::string> row3 = {"c"};
+	std::vector<std::string> row4 = {"d"};
+
+	Table table(name,colNames);
+	Table control(name,newColNames);
 }
 
 void test7(){

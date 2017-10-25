@@ -15,19 +15,6 @@ Table::Table(const Table &table): header(table.header) {
 	rows = table.rows;
 }
 
-Table Table::select(std::vector<SelectionKey*> selectionKeys) {
-	Table copy(*this);
-	for(auto &key : selectionKeys){
-		for(auto it = copy.rows.begin(); it != copy.rows.end(); it++){
-			if(!key->checkMatch(*it)){
-				copy.rows.erase(it);
-			}
-		}
-
-	}
-	return copy;
-}
-
 std::string Table::toString() {
 	std::stringstream ss;
 	ss << name << std::endl << header.toString() << std::endl;
@@ -40,8 +27,43 @@ std::string Table::toString() {
 	return ss.str();
 }
 
+Table Table::select(std::vector<SelectionKey*> selectionKeys) {
+	Table copy(*this);
+	for(auto &key : selectionKeys){
+		for(auto it = copy.rows.begin(); it != copy.rows.end(); it++){
+			if(!key->checkMatch(*it)) {
+				//std::cout << "Removing " << it->toString() << std::endl;
+				copy.rows.erase(it);
+			}
+		}
+
+	}
+	return copy;
+}
+
 std::string Table::getName() {
 	return name;
+}
+
+Table Table::project(std::set<int> columnsToKeep) {
+	Table copy(name,header.getReducedColumnNames(columnsToKeep));
+
+	for(auto &row : rows){
+		copy.addRow(row.getReducedRow(columnsToKeep));
+	}
+
+	return copy;
+}
+
+Table Table::rename(std::vector<ColumnNamePair> newNames) {
+	std::vector<std::string> headerNames = header.getColumnNames();
+	for(auto &pair : newNames){
+		headerNames.at(pair.getColumn()) = pair.getName();
+	}
+
+	Table copy(*this);
+	copy.header = headerNames;
+	return copy;
 }
 
 std::vector<std::string> Table::getHeaderColumnNames() {
@@ -55,14 +77,4 @@ void Table::addRow(Row rowIn) {
 	}
 
 	rows.insert(rowIn);
-}
-
-Table Table::project(std::set<int> columnsToKeep) {
-	Table copy(name,header.getReducedColumnNames(columnsToKeep));
-
-	for(auto &row : rows){
-		copy.addRow(row.getReducedRow(columnsToKeep));
-	}
-
-	return copy;
 }

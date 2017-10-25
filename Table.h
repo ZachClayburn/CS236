@@ -13,6 +13,7 @@
 #include "Header.h"
 #include "Row.h"
 #include "SelectionKey.h"
+#include "ColumnNamePair.h"
 
 class Table {
 
@@ -25,6 +26,8 @@ public:
 	Table select(std::vector<SelectionKey*> selectionKeys);
 
 	Table project(std::set<int> columnsToKeep);
+
+	Table rename(std::vector<ColumnNamePair> newNames);
 
 	void addRow(Row rowIn);
 
@@ -39,7 +42,6 @@ private:
 	struct rowComp{
 		bool operator()(const Row& left, const Row& right) const {
 			size_t length = left.size();
-			//todo sorting function
 			for(size_t i = 0; i < length; i++){
 				if(left.at(i) != right.at(i))
 					return left.at(i) < right.at(i);

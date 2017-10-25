@@ -11,6 +11,8 @@ ColumnColumnKey::ColumnColumnKey(int column1In, int column2In) {
 }
 
 bool ColumnColumnKey::checkMatch(const Row &row) const {
-	return row.at(column1) == row.at(column2);
+	auto one = row.at(column1);
+	auto two = row.at(column2);
+	return one == two;
 }
 
