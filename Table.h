@@ -18,19 +18,19 @@ class Table {
 
 public:
 
-	Table(std::string nameIn, std::list<std::string> columnNamesIn);
+	Table(std::string nameIn, std::vector<std::string> columnNamesIn);
 
 	Table(const Table& table);
 
 	Table select(std::vector<SelectionKey*> selectionKeys);
-
-	std::vector<std::string> getHeaderColumnNames();
 
 	void addRow(Row rowIn);
 
 	std::string toString();
 
 	std::string getName();
+
+	std::vector<std::string> getHeaderColumnNames();
 
 private:
 

@@ -4,7 +4,7 @@
 
 #include "Table.h"
 
-Table::Table(std::string nameIn, std::list<std::string> columnNamesIn):
+Table::Table(std::string nameIn, std::vector<std::string> columnNamesIn):
 header(columnNamesIn){
 	name = nameIn;
 
@@ -20,10 +20,7 @@ Table Table::select(std::vector<SelectionKey*> selectionKeys) {
 	for(auto &key : selectionKeys){
 		for(auto it = rows.begin(); it != rows.end(); it++){
 			if(!key->checkMatch(*it)){
-				size_t temp = rows.size();
 				rows.erase(it);
-				if(it != rows.begin())
-					it--;
 			}
 		}
 
@@ -35,11 +32,6 @@ std::string Table::toString() {
 	std::stringstream ss;
 	ss << name << std::endl << header.toString() << std::endl;
 
-/*
-	for (auto &row : rows){
-		ss << row.toString() << std::endl;
-	}
-*/
 
 	for(auto it = rows.begin(); it != rows.end(); it++){
 		ss << it->toString() << std::endl;

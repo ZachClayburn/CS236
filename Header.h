@@ -16,7 +16,7 @@ class Header {
 
 public:
 
-	Header(std::list<std::string> colNamesIn);
+	Header(std::vector<std::string> colNamesIn);
 
 	std::vector<std::string> getColumnNames();
 

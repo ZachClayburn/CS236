@@ -20,7 +20,7 @@ public:
 
 	size_t size() const;
 
-	const std::string at(int i) const;
+	const std::string at(size_t i) const;
 
 	std::string toString() const ;
 

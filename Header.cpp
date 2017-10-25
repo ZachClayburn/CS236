@@ -4,7 +4,7 @@
 
 #include "Header.h"
 
-Header::Header(std::list<std::string> colNamesIn) {
+Header::Header(std::vector<std::string> colNamesIn) {
 	for(auto &colName : colNamesIn){
 		columnNames.push_back(colName);
 	}
