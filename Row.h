@@ -8,18 +8,22 @@
 
 #include <list>
 #include <string>
+#include <vector>
+#include <iostream>
 
 class Row {
 
 public:
 
-	Row(std::list<std::string> contentsIn);
+	Row(std::vector<std::string> contentsIn);
 
 	size_t size();
 
+	const std::string at(int i);
+
 private:
 
-	std::list<std::string> contents;
+	std::vector<std::string> contents;
 };
 
 

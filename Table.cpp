@@ -10,8 +10,33 @@ header(columnNamesIn){
 
 }
 
+Table::Table(const Table &table): header(table.header) {
+	name = table.name;
+	rows = table.rows;
+}
+
+Table Table::select(std::vector<SelectionKey*> selectionKeys) {
+	Table copy(*this);
+	for(auto &key : selectionKeys){
+		for(auto it = rows.begin(); it != rows.end(); it++){
+			if(!key->checkMatch(*it)){
+				size_t temp = rows.size();
+				rows.erase(it);
+				if(it != rows.begin())
+					it--;
+			}
+		}
+
+	}
+	return copy;
+}
+
 std::string Table::getName() {
 	return name;
+}
+
+std::list<std::string> Table::getHeaderColumnNames() {
+	return header.getColumnNames();
 }
 
 void Table::addRow(Row rowIn) {

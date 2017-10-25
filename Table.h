@@ -8,14 +8,22 @@
 
 #include <string>
 #include <list>
+#include <vector>
 #include "Header.h"
 #include "Row.h"
+#include "SelectionKey.h"
 
 class Table {
 
 public:
 
 	Table(std::string nameIn, std::list<std::string> columnNamesIn);
+
+	Table(const Table& table);
+
+	Table select(std::vector<SelectionKey*> selectionKeys);
+
+	std::list<std::string> getHeaderColumnNames();
 
 	void addRow(Row rowIn);
 

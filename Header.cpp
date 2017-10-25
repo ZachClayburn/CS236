@@ -11,6 +11,10 @@ Header::Header(std::list<std::string> colNamesIn) {
 
 }
 
+std::list<std::string> Header::getColumnNames() {
+	return columnNames;
+}
+
 size_t Header::size() {
 	return columnNames.size();
 }

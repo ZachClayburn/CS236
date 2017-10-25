@@ -4,11 +4,15 @@
 
 #include "Row.h"
 
-Row::Row(std::list<std::string> contentsIn) {
+Row::Row(std::vector<std::string> contentsIn) {
 	contents = contentsIn;
 
 }
 
 size_t Row::size() {
 	return contents.size();
+}
+
+const std::string Row::at(int i) {
+	return contents.at(i);
 }

@@ -16,6 +16,8 @@ public:
 
 	Header(std::list<std::string> colNamesIn);
 
+	std::list<std::string> getColumnNames();
+
 	size_t size();
 
 private:
