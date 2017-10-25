@@ -2,6 +2,7 @@
 // Created by zach on 10/21/17.
 //
 
+#include <set>
 #include "Row.h"
 
 Row::Row(std::vector<std::string> contentsIn) {
@@ -27,4 +28,15 @@ std::string Row::toString() const {
 	}
 
 	return ss.str();
+}
+
+Row Row::getReducedRow(std::set<int> columnsToKeep) const {
+	std::vector<std::string> reducedNames;
+
+	for (int toKeep : columnsToKeep) {
+		reducedNames.push_back(contents.at(toKeep).data());
+	}
+
+	return Row(reducedNames);
+
 }

@@ -18,9 +18,9 @@ Table::Table(const Table &table): header(table.header) {
 Table Table::select(std::vector<SelectionKey*> selectionKeys) {
 	Table copy(*this);
 	for(auto &key : selectionKeys){
-		for(auto it = rows.begin(); it != rows.end(); it++){
+		for(auto it = copy.rows.begin(); it != copy.rows.end(); it++){
 			if(!key->checkMatch(*it)){
-				rows.erase(it);
+				copy.rows.erase(it);
 			}
 		}
 
@@ -55,4 +55,14 @@ void Table::addRow(Row rowIn) {
 	}
 
 	rows.insert(rowIn);
+}
+
+Table Table::project(std::set<int> columnsToKeep) {
+	Table copy(name,header.getReducedColumnNames(columnsToKeep));
+
+	for(auto &row : rows){
+		copy.addRow(row.getReducedRow(columnsToKeep));
+	}
+
+	return copy;
 }

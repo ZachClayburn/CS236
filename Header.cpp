@@ -2,6 +2,7 @@
 // Created by zach on 10/21/17.
 //
 
+#include <set>
 #include "Header.h"
 
 Header::Header(std::vector<std::string> colNamesIn) {
@@ -27,4 +28,14 @@ std::vector<std::string> Header::getColumnNames() {
 
 size_t Header::size() {
 	return columnNames.size();
+}
+
+std::vector<std::string> Header::getReducedColumnNames(std::set<int> columnsToKeep) {
+	std::vector<std::string> reducedNames;
+
+	for (int toKeep : columnsToKeep) {
+		reducedNames.push_back(columnNames.at(toKeep).data());
+	}
+
+	return reducedNames;
 }

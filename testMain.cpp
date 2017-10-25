@@ -100,9 +100,9 @@ void test3(){
 	//Removes any row that doesn't have a match in the first two columns
 	keys.push_back(new ColumnColumnKey(0,1));
 
-	table.select(keys);
+	Table testTable = table.select(keys);
 
-	if(table.toString() != control1.toString()){
+	if(testTable.toString() != control1.toString()){
 		failed = true;
 	}
 
@@ -113,9 +113,9 @@ void test3(){
 	//Removes any row that doesn't contain an "a" in the first column
 	keys.push_back(new ColumnValueKey(0,"a"));
 
-	table.select(keys);
+	testTable = testTable.select(keys);
 
-	if(table.toString() != control2.toString()){
+	if(testTable.toString() != control2.toString()){
 		failed = true;
 	}
 
@@ -151,9 +151,9 @@ void test4(){
 
 	control1.addRow(row2);
 
-	table.select(keys);
+	Table testTable = table.select(keys);
 
-	if(table.toString() != control1.toString()){
+	if(testTable.toString() != control1.toString()){
 		failed = true;
 	}
 
@@ -162,9 +162,9 @@ void test4(){
 	keys.push_back(new ColumnValueKey(0,"A"));
 	keys.push_back(new ColumnValueKey(0,"B"));
 
-	table.select(keys);
+	testTable = testTable.select(keys);
 
-	if(table.toString() != control2.toString()){
+	if(testTable.toString() != control2.toString()){
 		failed = true;
 	}
 
@@ -176,6 +176,33 @@ void test4(){
 }
 
 void test5(){
+	//This Test checks the project method works correctly
+	std::cout << "Running Test 5" << std::endl;
+
+	std::string name = "Test";
+	std::vector<std::string> colNames = {"Col1","Col2","col3"};
+	std::vector<std::string> row1 = {"b","a","1"};
+	std::vector<std::string> row2 = {"a","a","2"};
+	std::vector<std::string> row3 = {"c","c","3"};
+
+	std::string controlName = "Test";
+	std::vector<std::string> controlColNames = {"Col1","Col2"};
+	std::vector<std::string> controlRow1 = {"b","a"};
+	std::vector<std::string> controlRow2 = {"a","a"};
+	std::vector<std::string> controlRow3 = {"c","c"};
+
+	std::set<int> columnsToKeep = {0,1};
+
+	Table table(name,colNames);
+	Table control(controlName,controlColNames);
+
+	Table testTable = table.project(columnsToKeep);
+
+	if(control.toString() == testTable.toString()){
+		std::cout << "Pass!" << std::endl;
+	} else{
+		std::cout << "Fail!" << std::endl;
+	}
 
 }
 

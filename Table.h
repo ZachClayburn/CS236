@@ -24,6 +24,8 @@ public:
 
 	Table select(std::vector<SelectionKey*> selectionKeys);
 
+	Table project(std::set<int> columnsToKeep);
+
 	void addRow(Row rowIn);
 
 	std::string toString();

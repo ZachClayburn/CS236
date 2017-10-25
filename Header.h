@@ -8,9 +8,8 @@
 
 #include <string>
 #include <sstream>
-#include <list>
-#include <list>
 #include <vector>
+#include <set>
 
 class Header {
 
@@ -19,6 +18,8 @@ public:
 	Header(std::vector<std::string> colNamesIn);
 
 	std::vector<std::string> getColumnNames();
+
+	std::vector<std::string> getReducedColumnNames(std::set<int> columnsToKeep);
 
 	size_t size();
 

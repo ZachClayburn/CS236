@@ -11,12 +11,15 @@
 #include <sstream>
 #include <vector>
 #include <iostream>
+#include <set>
 
 class Row {
 
 public:
 
 	Row(std::vector<std::string> contentsIn);
+
+	Row getReducedRow(std::set<int> columnsToKeep) const ;
 
 	size_t size() const;
 
