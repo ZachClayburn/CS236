@@ -28,15 +28,16 @@ std::string Table::toString() {
 }
 
 Table Table::select(std::vector<SelectionKey*> selectionKeys) {
-	Table copy(*this);
-	for(auto &key : selectionKeys){
-		for(auto it = copy.rows.begin(); it != copy.rows.end(); it++){
+	Table copy(name,header.getColumnNames());
+	for(auto it = rows.begin(); it != rows.end(); it++){
+		bool keepRow = true;
+		for(auto &key : selectionKeys){
 			if(!key->checkMatch(*it)) {
-				//std::cout << "Removing " << it->toString() << std::endl;
-				copy.rows.erase(it);
+				keepRow = false;
 			}
 		}
-
+		if(keepRow)
+			copy.addRow(*it);
 	}
 	return copy;
 }
