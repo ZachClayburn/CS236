@@ -7,9 +7,9 @@
 
 
 #include <string>
-#include <list>
 #include <vector>
 #include <sstream>
+#include <set>
 #include "Header.h"
 #include "Row.h"
 #include "SelectionKey.h"
@@ -34,9 +34,21 @@ public:
 
 private:
 
+	struct rowComp{
+		bool operator()(const Row& left, const Row& right) const {
+			size_t length = left.size();
+			//todo sorting function
+			for(size_t i = 0; i < length; i++){
+				if(left.at(i) != right.at(i))
+					return left.at(i) < right.at(i);
+			}
+			return false;
+		}
+	};
+
 	std::string name;
 
-	std::list<Row> rows;
+	std::set<Row,rowComp> rows;
 
 	Header header;
 

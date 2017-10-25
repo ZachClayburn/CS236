@@ -18,11 +18,11 @@ public:
 
 	Row(std::vector<std::string> contentsIn);
 
-	size_t size();
+	size_t size() const;
 
-	const std::string at(int i);
+	const std::string at(int i) const;
 
-	std::string toString();
+	std::string toString() const ;
 
 private:
 

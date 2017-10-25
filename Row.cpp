@@ -9,15 +9,15 @@ Row::Row(std::vector<std::string> contentsIn) {
 
 }
 
-size_t Row::size() {
+size_t Row::size() const{
 	return contents.size();
 }
 
-const std::string Row::at(int i) {
+const std::string Row::at(int i) const {
 	return contents.at(i);
 }
 
-std::string Row::toString() {
+std::string Row::toString() const {
 	std::stringstream ss;
 
 	for (auto &value : contents){

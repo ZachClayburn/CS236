@@ -14,7 +14,7 @@ public:
 
 	ColumnColumnKey(int column1In, int column2In);
 
-	virtual bool checkMatch(Row &row) override;
+	virtual bool checkMatch(const Row &row) const override;
 
 private:
 

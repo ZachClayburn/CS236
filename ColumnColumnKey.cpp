@@ -10,7 +10,7 @@ ColumnColumnKey::ColumnColumnKey(int column1In, int column2In) {
 
 }
 
-bool ColumnColumnKey::checkMatch(Row &row) {
+bool ColumnColumnKey::checkMatch(const Row &row) const {
 	return row.at(column1) == row.at(column2);
 }
 

@@ -15,7 +15,7 @@ public:
 
 	ColumnValueKey(int columnIn, std::string valueIn);
 
-	virtual bool checkMatch(Row &row) override ;
+	virtual bool checkMatch(const Row &row) const override ;
 
 private:
 

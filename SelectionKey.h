@@ -12,7 +12,7 @@ class SelectionKey {
 
 public:
 
-	virtual bool checkMatch(Row &row) = 0;
+	virtual bool checkMatch(const Row &row) const = 0;
 
 };
 

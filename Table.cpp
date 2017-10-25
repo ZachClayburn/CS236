@@ -35,8 +35,14 @@ std::string Table::toString() {
 	std::stringstream ss;
 	ss << name << std::endl << header.toString() << std::endl;
 
+/*
 	for (auto &row : rows){
 		ss << row.toString() << std::endl;
+	}
+*/
+
+	for(auto it = rows.begin(); it != rows.end(); it++){
+		ss << it->toString() << std::endl;
 	}
 
 	return ss.str();
@@ -56,5 +62,5 @@ void Table::addRow(Row rowIn) {
 		throw "Row is incorrect size!";
 	}
 
-	rows.push_back(rowIn);
+	rows.insert(rowIn);
 }

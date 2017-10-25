@@ -25,7 +25,7 @@ void test1() {
 
 
 	Table table1(name,colNames);
-	
+
 	table1.addRow(Row(row1));
 	table1.addRow(Row(row2));
 	table1.addRow(Row(row3));

@@ -9,6 +9,6 @@ ColumnValueKey::ColumnValueKey(int columnIn, std::string valueIn) {
 	value = valueIn;
 }
 
-bool ColumnValueKey::checkMatch(Row &row) {
+bool ColumnValueKey::checkMatch(const Row &row) const {
 	return (row.at(column) == value);
 }
