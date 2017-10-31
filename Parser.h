@@ -53,6 +53,12 @@ public:
 
 	std::vector<std::string> getSchemeColumns();
 
+	bool moreFacts();
+
+	std::string getFactScheme();
+
+	std::vector<std::string> getFactColumns();
+
 private:
 
 	Schemes* schemes;

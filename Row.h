@@ -25,7 +25,7 @@ public:
 
 	const std::string at(size_t i) const;
 
-	std::string toString() const ;
+	std::string toString(std::vector<std::string> headerNames) const ;
 
 private:
 

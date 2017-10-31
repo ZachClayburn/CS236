@@ -45,3 +45,15 @@ std::string Parser::getSchemeName() {
 std::vector<std::string> Parser::getSchemeColumns() {
 	return schemes->getSchemeColumnNames();
 }
+
+bool Parser::moreFacts() {
+	return facts->moreFacts();
+}
+
+std::string Parser::getFactScheme() {
+	return facts->getFactScheme();
+}
+
+std::vector<std::string> Parser::getFactColumns() {
+	facts->getFactContents();
+}

@@ -38,3 +38,7 @@ void Fact::addString(Lexer &lexer) {
 	}
 
 }
+
+std::string Fact::getID() {
+	return factID.toString();
+}

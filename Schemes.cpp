@@ -28,7 +28,7 @@ std::string Schemes::toString() {
 }
 
 bool Schemes::moreSchemes() {
-	return curScheme == schemeList.size() - 1;
+	return curScheme < schemeList.size();
 }
 
 std::string Schemes::getSchemeName() {

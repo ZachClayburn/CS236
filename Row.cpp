@@ -18,13 +18,13 @@ const std::string Row::at(size_t i) const {
 	return contents.at(i);
 }
 
-std::string Row::toString() const {
+std::string Row::toString(std::vector<std::string> headerNames) const {
 	std::stringstream ss;
 
-	ss << "  ";
-
-	for (auto &value : contents){
-		ss << value << ' ';
+	for(int i = 0; i < contents.size(); i++){
+		ss << headerNames.at(i) << '=' << contents.at(i);
+		if(i < contents.size() - 1)
+			ss << ", ";
 	}
 
 	return ss.str();

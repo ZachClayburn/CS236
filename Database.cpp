@@ -10,6 +10,14 @@ Database::Database(Parser* parser) {
 	evalQueries(parser);
 }
 
+void Database::printDatabase() {
+
+	for(auto &table : tables){
+		std::cout << table.second.toString();
+	}
+
+}
+
 void Database::addSchemes(Parser *parser) {
 	while(parser->moreSchemes()){
 		std::string name = parser->getSchemeName();
@@ -21,6 +29,10 @@ void Database::addSchemes(Parser *parser) {
 }
 
 void Database::addRows(Parser *parser) {
+	while(parser->moreFacts()){
+		std::string name = parser->getFactScheme();
+		tables.at(name).addRow(Row(parser->getFactColumns()));
+	}
 
 }
 

@@ -44,6 +44,12 @@ public:
 	 */
 	std::string domainTostring();
 
+	bool moreFacts();
+
+	std::string getFactScheme();
+
+	std::vector<std::string> getFactContents();
+
 private:
 
 	/**
@@ -56,6 +62,8 @@ private:
 	 */
 	 std::set<std::string> domain;
 	//std::vector<std::string> domain;
+
+	int curFact = 0;
 
 	/**
 	 * Adds Fact object to the factList recursively.

@@ -35,7 +35,7 @@ void test1() {
 	Table testTable = table.rename(changedName);
 	testTable = testTable.select(keys);
 
-	if(testTable.toString() == control.toString()){
+	if(testTable.toString(std::vector<std::string>()) == control.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -62,7 +62,7 @@ void test2(){
 
 	Table testTable = table.project(keys);
 
-	if(testTable.toString() == control.toString()){
+	if(testTable.toString(std::vector<std::string>()) == control.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -101,7 +101,7 @@ void test3(){
 
 	Table testTable = table.select(keys);
 
-	if(testTable.toString() != control1.toString()){
+	if(testTable.toString(std::vector<std::string>()) != control1.toString(std::vector<std::string>())){
 		failed = true;
 	}
 
@@ -114,7 +114,7 @@ void test3(){
 
 	testTable = testTable.select(keys);
 
-	if(testTable.toString() != control2.toString()){
+	if(testTable.toString(std::vector<std::string>()) != control2.toString(std::vector<std::string>())){
 		failed = true;
 	}
 
@@ -152,7 +152,7 @@ void test4(){
 
 	Table testTable = table.select(keys);
 
-	if(testTable.toString() != control1.toString()){
+	if(testTable.toString(std::vector<std::string>()) != control1.toString(std::vector<std::string>())){
 		failed = true;
 	}
 
@@ -163,7 +163,7 @@ void test4(){
 
 	testTable = testTable.select(keys);
 
-	if(testTable.toString() != control2.toString()){
+	if(testTable.toString(std::vector<std::string>()) != control2.toString(std::vector<std::string>())){
 		failed = true;
 	}
 
@@ -205,7 +205,7 @@ void test5(){
 
 	Table testTable = table.project(columnsToKeep);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -233,7 +233,7 @@ void test6(){
 
 	Table testTable = table.rename(newNames);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -272,7 +272,7 @@ void test7(){
 	testTable = testTable.project(columnsToKeep);
 	testTable = testTable.rename(newNames);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -315,7 +315,7 @@ void test8(){
 	testTable = testTable.project(columnsToKeep);
 	testTable = testTable.rename(newNames);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -361,7 +361,7 @@ void test9(){
 	testTable = testTable.project(columnsToKeep);
 	testTable = testTable.rename(newNames);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;
@@ -402,7 +402,7 @@ void test10(){
 	testTable = testTable.project(columnsToKeep);
 	testTable = testTable.rename(newNames);
 
-	if(control.toString() == testTable.toString()){
+	if(control.toString(std::vector<std::string>()) == testTable.toString(std::vector<std::string>())){
 		std::cout << "Pass!" << std::endl;
 	} else{
 		std::cout << "Fail!" << std::endl;

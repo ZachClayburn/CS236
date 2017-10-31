@@ -15,6 +15,8 @@ public:
 
 	Database(Parser* parser);
 
+	void printDatabase();
+
 private:
 
 	void addSchemes(Parser *parser);

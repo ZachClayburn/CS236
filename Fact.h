@@ -39,6 +39,8 @@ public:
 	 */
 	std::vector<String> getStrings();
 
+	std::string getID();
+
 private:
 
 	/**

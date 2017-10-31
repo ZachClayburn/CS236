@@ -16,12 +16,12 @@ Table::Table(const Table &table): header(table.header) {
 }
 
 std::string Table::toString() {
-	std::stringstream ss;
-	ss << name << std::endl << header.toString() << std::endl;
 
+	std::vector<std::string> headerNames = header.getColumnNames();
+	std::stringstream ss;
 
 	for(auto it = rows.begin(); it != rows.end(); it++){
-		ss << it->toString() << std::endl;
+		ss << "  " << it->toString(headerNames) << std::endl;
 	}
 
 	return ss.str();

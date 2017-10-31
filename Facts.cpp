@@ -48,3 +48,21 @@ void Facts::buildDomain() {
 		}
 	}
 }
+
+bool Facts::moreFacts() {
+	return curFact < factList.size();
+}
+
+std::string Facts::getFactScheme() {
+	return factList.at(curFact).getID();
+}
+
+std::vector<std::string> Facts::getFactContents() {
+	std::vector<String> contentStrings = factList.at(curFact).getStrings();
+	curFact++;
+	std::vector<std::string> rvalue;
+	for(auto &string : contentStrings){
+		rvalue.push_back(string.toString());
+	}
+	return rvalue;
+}
