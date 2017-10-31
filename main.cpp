@@ -3,6 +3,7 @@
 #include <fstream>
 #include "Lexer.h"
 #include "Parser.h"
+#include "Database.h"
 
 
 /**
@@ -47,8 +48,7 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
-	std::cout << "Success!" << std::endl;
-	std::cout << parser->toString();
+	Database database(parser);
 
 	delete parser;
 

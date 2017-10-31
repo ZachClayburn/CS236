@@ -33,3 +33,15 @@ std::string Parser::toString() {
 
 	return ss.str();
 }
+
+bool Parser::moreSchemes() {
+	return schemes->moreSchemes();
+}
+
+std::string Parser::getSchemeName() {
+	return schemes->getSchemeName();
+}
+
+std::vector<std::string> Parser::getSchemeColumns() {
+	return schemes->getSchemeColumnNames();
+}

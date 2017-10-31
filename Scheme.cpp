@@ -38,3 +38,18 @@ void Scheme::addIDToList(Lexer &lexer) {
 		addIDToList(lexer);
 	}
 }
+
+std::string Scheme::getname() {
+	return schemeID.toString();
+}
+
+std::vector<std::string> Scheme::getColumnNames() {
+
+	std::vector<std::string> rvalue;
+
+	for(auto &ID : IDList){
+		rvalue.push_back(ID.toString());
+	}
+
+	return rvalue;
+}

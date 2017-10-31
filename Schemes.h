@@ -37,6 +37,12 @@ public:
 	 */
 	std::string toString();
 
+	bool moreSchemes();
+
+	std::string getSchemeName();
+
+	std::vector<std::string> getSchemeColumnNames();
+
 private:
 
 	/**
@@ -51,6 +57,8 @@ private:
 	 * A vector of all of the schemes, should not be empty
 	 */
 	std::vector<Scheme> schemeList;
+
+	int curScheme = 0;
 
 };
 

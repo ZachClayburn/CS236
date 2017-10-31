@@ -26,3 +26,17 @@ std::string Schemes::toString() {
 
 	return ss.str();
 }
+
+bool Schemes::moreSchemes() {
+	return curScheme == schemeList.size() - 1;
+}
+
+std::string Schemes::getSchemeName() {
+	return schemeList.at(curScheme).getname();
+}
+
+std::vector<std::string> Schemes::getSchemeColumnNames() {
+	auto rvalue = schemeList.at(curScheme).getColumnNames();
+	curScheme++;
+	return rvalue;
+}

@@ -32,6 +32,10 @@ public:
 	 */
 	std::string toString();
 
+	std::string getname();
+
+	std::vector<std::string> getColumnNames();
+
 private:
 	/**
 	 * The ID that represents the given Scheme

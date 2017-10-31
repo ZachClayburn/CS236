@@ -47,6 +47,11 @@ public:
 	 */
 	std::string toString();
 
+	bool moreSchemes();
+
+	std::string getSchemeName();
+
+	std::vector<std::string> getSchemeColumns();
 
 private:
 
