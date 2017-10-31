@@ -21,6 +21,7 @@ public:
 	 */
 	ID(Lexer& lexer);
 
+	virtual Token::types getType();
 
 private:
 

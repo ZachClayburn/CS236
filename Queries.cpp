@@ -28,3 +28,21 @@ void Queries::addQuery(Lexer &lexer) {
 	}
 
 }
+
+bool Queries::moreQueries() {
+	return curQuery < queryList.size();
+}
+
+std::string Queries::getFullQuery() {
+	return queryList.at(curQuery).toString() + "?";
+}
+
+std::string Queries::getQueryName() {
+	return queryList.at(curQuery).getIDString();
+}
+
+std::vector<SelectionKey*> Queries::getSelectionKeys() {
+	std::vector<SelectionKey *> rvalue = queryList.at(curQuery).getSelectionKeys();
+	curQuery++;
+	return rvalue;
+}

@@ -21,6 +21,8 @@ public:
 	 */
 	String(Lexer& lexer);
 
+	virtual Token::types getType();
+
 private:
 
 

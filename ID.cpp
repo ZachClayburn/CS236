@@ -7,3 +7,7 @@
 ID::ID(Lexer &lexer):
 Parameter(lexer,Token::ID){}
 
+Token::types ID::getType() {
+	return Token::ID;
+}
+

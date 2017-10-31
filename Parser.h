@@ -47,17 +47,13 @@ public:
 	 */
 	std::string toString();
 
-	bool moreSchemes();
+	Schemes* getSchemes();
 
-	std::string getSchemeName();
+	Facts* getFacts();
 
-	std::vector<std::string> getSchemeColumns();
+	Rules* getRules();
 
-	bool moreFacts();
-
-	std::string getFactScheme();
-
-	std::vector<std::string> getFactColumns();
+	Queries* getQueries();
 
 private:
 

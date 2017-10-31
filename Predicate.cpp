@@ -47,3 +47,35 @@ void Predicate::addParameter(Lexer& lexer) {
 		addParameter(lexer);
 	}
 }
+
+std::string Predicate::getIDString() {
+	return predicateID.toString();
+}
+
+std::vector<SelectionKey *> Predicate::getSelectionKeys() {
+	std::vector<SelectionKey *> keys;
+	int col = 0;
+	std::map<std::string,int> IDs;
+
+	for(auto &param : parameterList){
+		switch(param->getType()){
+			case Token::STRING: {
+				keys.push_back(new ColumnValueKey(col, param->toString()));
+			}
+				break;
+			case Token::ID: {
+				std::pair<std::string, int> tempPair(param->toString(), col);
+				auto state = IDs.insert(tempPair);
+				if (!state.second)
+					keys.push_back(new ColumnColumnKey(state.first->second, col));
+			}
+				break;
+			default:
+				std::cout << "There was an Error in Predicate::getSelectionKeys()!\n";
+				break;
+		}
+		col++;
+	}
+
+	return keys;
+}

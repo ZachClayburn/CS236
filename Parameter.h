@@ -40,6 +40,8 @@ public:
 	 */
 	 virtual std::string toString();
 
+	virtual Token::types getType();
+
 private:
 
 	Token token;

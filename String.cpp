@@ -7,3 +7,7 @@
 String::String(Lexer &lexer):
 Parameter(lexer,Token::STRING){}
 
+Token::types String::getType() {
+	return Token::STRING;
+}
+

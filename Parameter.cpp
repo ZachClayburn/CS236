@@ -14,3 +14,12 @@ std::string Parameter::toString() {
 	return token.getString();
 }
 
+Token::types Parameter::getType() {
+	if(token.toString() == "+")
+		return Token::ADD;
+	else if(token.toString() == "*")
+		return Token::MULTIPLY;
+	else
+		std::cout << "There was Problem with Parameter::getType()\n";
+}
+

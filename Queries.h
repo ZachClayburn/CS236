@@ -7,6 +7,7 @@
 
 #include "Lexer.h"
 #include "Predicate.h"
+#include "SelectionKey.h"
 
 class Queries {
 
@@ -16,11 +17,21 @@ public:
 
 	std::string toString();
 
+	bool moreQueries();
+
+	std::string getFullQuery();
+
+	std::string getQueryName();
+
+	std::vector<SelectionKey*> getSelectionKeys();
+
 private:
 
 	std::vector<Predicate> queryList;
 
 	void addQuery(Lexer& lexer);
+
+	int curQuery;
 
 };
 

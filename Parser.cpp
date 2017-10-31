@@ -34,26 +34,20 @@ std::string Parser::toString() {
 	return ss.str();
 }
 
-bool Parser::moreSchemes() {
-	return schemes->moreSchemes();
+
+Schemes *Parser::getSchemes() {
+	return schemes;
 }
 
-std::string Parser::getSchemeName() {
-	return schemes->getSchemeName();
+Facts *Parser::getFacts() {
+	return facts;
 }
 
-std::vector<std::string> Parser::getSchemeColumns() {
-	return schemes->getSchemeColumnNames();
+Rules *Parser::getRules() {
+	return rules;
 }
 
-bool Parser::moreFacts() {
-	return facts->moreFacts();
+Queries *Parser::getQueries() {
+	return queries;
 }
 
-std::string Parser::getFactScheme() {
-	return facts->getFactScheme();
-}
-
-std::vector<std::string> Parser::getFactColumns() {
-	facts->getFactContents();
-}
