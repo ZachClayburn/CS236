@@ -19,7 +19,7 @@ public:
 
 	std::vector<std::string> getColumnNames();
 
-	std::vector<std::string> getReducedColumnNames(std::set<int> columnsToKeep);
+	std::vector<std::string> getReducedColumnNames(std::vector<int> columnsToKeep);
 
 	size_t size();
 

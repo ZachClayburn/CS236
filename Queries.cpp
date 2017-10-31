@@ -34,7 +34,9 @@ bool Queries::moreQueries() {
 }
 
 std::string Queries::getFullQuery() {
-	return queryList.at(curQuery).toString() + "?";
+	std::stringstream ss;
+	ss << queryList.at(curQuery).toString() << "?";
+	return ss.str();
 }
 
 std::string Queries::getQueryName() {
@@ -42,7 +44,11 @@ std::string Queries::getQueryName() {
 }
 
 std::vector<SelectionKey*> Queries::getSelectionKeys() {
-	std::vector<SelectionKey *> rvalue = queryList.at(curQuery).getSelectionKeys();
+	return queryList.at(curQuery).getSelectionKeys();
+}
+
+std::vector<int> Queries::getColumnsToKeep() {
+	std::vector<int> rvalue = queryList.at(curQuery).getColumnsToKeep();
 	curQuery++;
 	return rvalue;
 }

@@ -8,6 +8,7 @@
 #include "Lexer.h"
 #include "Predicate.h"
 #include "SelectionKey.h"
+#include "ColumnNamePair.h"
 
 class Queries {
 
@@ -24,6 +25,10 @@ public:
 	std::string getQueryName();
 
 	std::vector<SelectionKey*> getSelectionKeys();
+
+	std::vector<int> getColumnsToKeep();
+
+	std::vector<ColumnNamePair> getRenames(std::vector<int> columnsToKeep);
 
 private:
 

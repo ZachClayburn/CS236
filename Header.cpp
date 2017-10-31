@@ -30,7 +30,7 @@ size_t Header::size() {
 	return columnNames.size();
 }
 
-std::vector<std::string> Header::getReducedColumnNames(std::set<int> columnsToKeep) {
+std::vector<std::string> Header::getReducedColumnNames(std::vector<int> columnsToKeep) {
 	std::vector<std::string> reducedNames;
 
 	for (int toKeep : columnsToKeep) {

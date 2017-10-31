@@ -29,6 +29,8 @@ public:
 
 	std::vector<SelectionKey*> getSelectionKeys();
 
+	std::vector<int> getColumnsToKeep();
+
 private:
 
 	ID predicateID;

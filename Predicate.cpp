@@ -79,3 +79,20 @@ std::vector<SelectionKey *> Predicate::getSelectionKeys() {
 
 	return keys;
 }
+
+std::vector<int> Predicate::getColumnsToKeep() {
+	std::vector<int> columnsToKeep;
+	int col = 0;
+	std::map<std::string,int> IDs;
+
+	for(auto &param : parameterList){
+		if(param->getType() == Token::ID){
+			std::pair<std::string, int> tempPair(param->toString(), col);
+			auto state = IDs.insert(tempPair);
+			if (state.second)
+				columnsToKeep.push_back(col);
+		}
+		col++;
+	}
+	return columnsToKeep;
+}

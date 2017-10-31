@@ -49,10 +49,19 @@ void Database::evalQueries(Parser *parser) {
 		Table temp = tables.at(queries->getQueryName());
 		std::vector<SelectionKey*> keys = queries->getSelectionKeys();
 		temp = temp.select(keys);
+		std::vector<int> columnsToKeep = queries->getColumnsToKeep();
+		temp = temp.project(columnsToKeep);
+//		std::vector<ColumnNamePair> renames = queries->getRenames(columnsToKeep);
+//		temp.rename(renames);
 
+		size_t size = temp.size();
 		std::cout << query;
-		std::cout << temp.toString();
-		std::cout <<  std::endl;
+		if(size == 0){
+			std::cout << " No" << std::endl;
+		}else {
+			std::cout << " Yes(" << size << ")" << std::endl;
+			std::cout << temp.toString();
+		}
 	}
 
 }

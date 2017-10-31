@@ -20,10 +20,11 @@ std::string Table::toString() {
 	std::vector<std::string> headerNames = header.getColumnNames();
 	std::stringstream ss;
 
-	for(auto it = rows.begin(); it != rows.end(); it++){
-		ss << "  " << it->toString(headerNames) << std::endl;
+	if(!headerNames.empty()) {
+		for (auto it = rows.begin(); it != rows.end(); it++) {
+			ss << "  " << it->toString(headerNames) << std::endl;
+		}
 	}
-
 	return ss.str();
 }
 
@@ -46,7 +47,7 @@ std::string Table::getName() {
 	return name;
 }
 
-Table Table::project(std::set<int> columnsToKeep) {
+Table Table::project(const std::vector<int> &columnsToKeep) {
 	Table copy(name,header.getReducedColumnNames(columnsToKeep));
 
 	for(auto &row : rows){
@@ -78,4 +79,8 @@ void Table::addRow(Row rowIn) {
 	}
 
 	rows.insert(rowIn);
+}
+
+size_t Table::size() {
+	return rows.size();
 }

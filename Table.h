@@ -25,13 +25,15 @@ public:
 
 	Table select(std::vector<SelectionKey*> selectionKeys);
 
-	Table project(std::set<int> columnsToKeep);
+	Table project(const std::vector<int> &columnsToKeep);
 
 	Table rename(std::vector<ColumnNamePair> newNames);
 
 	void addRow(Row rowIn);
 
 	std::string toString();
+
+	size_t size();
 
 	std::string getName();
 

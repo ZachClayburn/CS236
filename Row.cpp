@@ -30,7 +30,7 @@ std::string Row::toString(std::vector<std::string> headerNames) const {
 	return ss.str();
 }
 
-Row Row::getReducedRow(std::set<int> columnsToKeep) const {
+Row Row::getReducedRow(std::vector<int> columnsToKeep) const {
 	std::vector<std::string> reducedNames;
 
 	for (int toKeep : columnsToKeep) {

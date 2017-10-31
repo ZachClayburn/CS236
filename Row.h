@@ -19,7 +19,7 @@ public:
 
 	Row(std::vector<std::string> contentsIn);
 
-	Row getReducedRow(std::set<int> columnsToKeep) const ;
+	Row getReducedRow(std::vector<int> columnsToKeep) const ;
 
 	size_t size() const;
 
