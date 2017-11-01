@@ -36,7 +36,7 @@ private:
 
 	void addQuery(Lexer& lexer);
 
-	int curQuery;
+	int curQuery = 0;
 
 };
 
