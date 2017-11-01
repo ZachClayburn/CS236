@@ -96,3 +96,12 @@ std::vector<int> Predicate::getColumnsToKeep() {
 	}
 	return columnsToKeep;
 }
+
+std::vector<ColumnNamePair> Predicate::getRenames(std::vector<int> columnsToKeep) {
+	std::vector<ColumnNamePair> renames;
+
+	for(auto &col : columnsToKeep)
+		renames.emplace_back(col,parameterList.at(col)->toString());
+
+	return renames;
+}

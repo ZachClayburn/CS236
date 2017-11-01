@@ -48,7 +48,11 @@ std::vector<SelectionKey*> Queries::getSelectionKeys() {
 }
 
 std::vector<int> Queries::getColumnsToKeep() {
-	std::vector<int> rvalue = queryList.at(curQuery).getColumnsToKeep();
+	return queryList.at(curQuery).getColumnsToKeep();
+}
+
+std::vector<ColumnNamePair> Queries::getRenames(std::vector<int> columnsToKeep) {
+	std::vector<ColumnNamePair> rvalue = queryList.at(curQuery).getRenames(columnsToKeep);
 	curQuery++;
 	return rvalue;
 }

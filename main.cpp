@@ -50,8 +50,6 @@ int main(int nargin, char* args[]) {
 
 	Database database(parser);
 
-	database.printDatabase();
-
 	delete parser;
 
 	return 0;

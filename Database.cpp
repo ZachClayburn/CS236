@@ -51,8 +51,8 @@ void Database::evalQueries(Parser *parser) {
 		temp = temp.select(keys);
 		std::vector<int> columnsToKeep = queries->getColumnsToKeep();
 		temp = temp.project(columnsToKeep);
-//		std::vector<ColumnNamePair> renames = queries->getRenames(columnsToKeep);
-//		temp.rename(renames);
+		std::vector<ColumnNamePair> renames = queries->getRenames(columnsToKeep);
+		temp = temp.rename(renames);
 
 		size_t size = temp.size();
 		std::cout << query;

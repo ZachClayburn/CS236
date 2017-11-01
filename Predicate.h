@@ -14,6 +14,7 @@
 #include "Expression.h"
 #include "ColumnColumnKey.h"
 #include "ColumnValueKey.h"
+#include "ColumnNamePair.h"
 
 class Predicate {
 
@@ -30,6 +31,8 @@ public:
 	std::vector<SelectionKey*> getSelectionKeys();
 
 	std::vector<int> getColumnsToKeep();
+
+	std::vector<ColumnNamePair> getRenames(std::vector<int> columnsToKeep);
 
 private:
 
