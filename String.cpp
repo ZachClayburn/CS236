@@ -11,3 +11,5 @@ Token::types String::getType() {
 	return Token::STRING;
 }
 
+String::String(const Parameter *oldParam) : Parameter(oldParam) {}
+

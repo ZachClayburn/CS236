@@ -11,13 +11,44 @@ Predicate::Predicate(Lexer &lexer) :
 	lexer.getNext(Token::RIGHT_PAREN);
 }
 
-/*
+Predicate::Predicate(const Predicate &oldPredicate) :
+		predicateID(oldPredicate.predicateID),
+		parameterList(oldPredicate.parameterList.size(),NULL){
+	size_t at = 0;
+	for(auto &param : oldPredicate.parameterList){
+		switch (param->getType()){
+			case Token::STRING:{
+				parameterList.at(at) = new String(param);
+			}
+			break;
+			case Token::ID:{
+				parameterList.at(at) = new ID(param);
+			}
+			break;
+			case Token::ADD:{
+				parameterList.at(at) = new Opperator(param);
+			}
+			break;
+			case Token::MULTIPLY:{
+				parameterList.at(at) = new Opperator(param);
+			}
+			break;
+			case Token::WHITESPACE:{
+				parameterList.at(at) = new Expression((Expression*)param);
+			}
+			break;
+		}
+		at++;
+	}
+}
+
+
 Predicate::~Predicate() {
 	for (auto &parameter : parameterList)
 		delete parameter;
 
 }
-*/
+
 
 std::string Predicate::toString() {
 	std::stringstream ss;

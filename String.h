@@ -21,6 +21,8 @@ public:
 	 */
 	String(Lexer& lexer);
 
+	String(const Parameter* oldParam);
+
 	virtual Token::types getType();
 
 private:

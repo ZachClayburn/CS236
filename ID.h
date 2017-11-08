@@ -21,6 +21,8 @@ public:
 	 */
 	ID(Lexer& lexer);
 
+	ID(const Parameter* oldParam);
+
 	virtual Token::types getType();
 
 private:

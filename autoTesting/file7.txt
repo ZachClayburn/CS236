@@ -1,7 +1,8 @@
 Schemes:
   Hello(W,O,R,L,D)
+  Foo(A,B,C)
 Facts:
-  Thing('A','B','C').
+  Foo('A','B','C').
 Rules:
   This(A,B) :- Hey((A+(A+(A+B))),('A'*B)),Sup(A,B,(A+'B')). #|Testing complicated predicates, with lots of
   parentheses and mixed expressions to handle|#

@@ -10,16 +10,20 @@ Parameter::Parameter(Lexer& lexer) :
 Parameter::Parameter(Lexer &lexer, Token::types type):
 		token(lexer.getNext(type)){}
 
+Parameter::Parameter(const Parameter *oldParam) :
+		token(oldParam->token){}
+
 std::string Parameter::toString() {
 	return token.getString();
 }
 
 Token::types Parameter::getType() {
-	if(token.toString() == "+")
+	auto string = token.toString();
+	if(string == "+")
 		return Token::ADD;
-	else if(token.toString() == "*")
+	else if(string == "*")
 		return Token::MULTIPLY;
 	else
-		std::cout << "There was Problem with Parameter::getType()\n";
+		return Token::WHITESPACE;
 }
 

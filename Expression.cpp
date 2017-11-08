@@ -42,3 +42,9 @@ Parameter* Expression::addParameter(Lexer &lexer) {
 		return new Expression(lexer);
 }
 
+Expression::Expression(const Expression *oldParam) : Parameter(oldParam) {
+	leftParam = new Parameter(oldParam->leftParam);
+	rightParam = new Parameter(oldParam->rightParam);
+	op = new Parameter(oldParam->op);
+}
+

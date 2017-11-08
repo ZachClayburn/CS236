@@ -11,3 +11,5 @@ Token::types ID::getType() {
 	return Token::ID;
 }
 
+ID::ID(const Parameter *oldParam) : Parameter(oldParam) {}
+

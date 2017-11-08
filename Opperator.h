@@ -14,6 +14,8 @@ public:
 
 	Opperator(Lexer& lexer, Token::types type);
 
+	Opperator(const Parameter* oldParam);
+
 };
 
 

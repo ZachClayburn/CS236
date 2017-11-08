@@ -22,7 +22,9 @@ public:
 
 	Predicate(Lexer& lexer);
 
-	//~Predicate();todo sort out memory leaks
+	Predicate(const Predicate &oldPredicate);
+
+	~Predicate();
 
 	std::string toString();
 

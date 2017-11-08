@@ -22,6 +22,10 @@ public:
 	 */
 	Parameter(Lexer& lexer);
 
+	Parameter(const Parameter* oldParam);
+
+	virtual ~Parameter(){}
+
 	/**
 	 * The constructor that String, ID or Operator calls.
 	 *
@@ -38,7 +42,7 @@ public:
 	 * Get the string of the Token contained in Parameter
 	 * @return The IDs string;
 	 */
-	 virtual std::string toString();
+	virtual std::string toString();
 
 	virtual Token::types getType();
 

@@ -17,7 +17,9 @@ public:
 
 	Expression(Lexer& lexer);
 
-	~Expression();
+	Expression(const Expression *oldParam);
+
+	virtual ~Expression();
 
 	std::string toString() override;
 

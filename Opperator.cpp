@@ -7,3 +7,5 @@
 Opperator::Opperator(Lexer &lexer, Token::types type) : Parameter(lexer, type) {
 
 }
+
+Opperator::Opperator(const Parameter *oldParam) : Parameter(oldParam) {}
