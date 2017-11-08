@@ -68,7 +68,7 @@ Table Table::rename(std::vector<ColumnNamePair> newNames) {
 	return copy;
 }
 
-std::vector<std::string> Table::getHeaderColumnNames() {
+std::vector<std::string> Table::getHeaderColumnNames() const {
 	return header.getColumnNames();
 }
 
@@ -83,4 +83,21 @@ void Table::addRow(Row rowIn) {
 
 size_t Table::size() {
 	return rows.size();
+}
+
+Table Table::join(const Table &table) {
+	return Table();
+}
+
+void Table::tableUnion(const Table &table) {
+
+	if(table.getHeaderColumnNames() != getHeaderColumnNames()){
+		//todo come up with a sort function using project to change the column order
+		std::cout << "Error: Unioning tables with non-matching column names!" << std::endl;
+	}
+
+	for(auto &row : table.rows){
+		addRow(row);
+	}
+
 }

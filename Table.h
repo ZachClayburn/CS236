@@ -19,7 +19,7 @@ class Table {
 
 public:
 
-	Table(std::string nameIn, std::vector<std::string> columnNamesIn);
+	Table(std::string nameIn = "Null", std::vector<std::string> columnNamesIn = {});
 
 	Table(const Table& table);
 
@@ -29,6 +29,10 @@ public:
 
 	Table rename(std::vector<ColumnNamePair> newNames);
 
+	Table join(const Table& table);
+
+	void tableUnion(const Table &table);
+
 	void addRow(Row rowIn);
 
 	std::string toString();
@@ -37,7 +41,7 @@ public:
 
 	std::string getName();
 
-	std::vector<std::string> getHeaderColumnNames();
+	std::vector<std::string> getHeaderColumnNames() const;
 
 private:
 

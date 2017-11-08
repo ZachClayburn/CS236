@@ -17,7 +17,7 @@ public:
 
 	Header(std::vector<std::string> colNamesIn);
 
-	std::vector<std::string> getColumnNames();
+	std::vector<std::string> getColumnNames() const;
 
 	std::vector<std::string> getReducedColumnNames(std::vector<int> columnsToKeep);
 

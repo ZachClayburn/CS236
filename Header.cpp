@@ -22,7 +22,7 @@ std::string Header::toString() {
 	return ss.str();
 }
 
-std::vector<std::string> Header::getColumnNames() {
+std::vector<std::string> Header::getColumnNames() const{
 	return columnNames;
 }
 
