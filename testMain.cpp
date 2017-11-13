@@ -70,6 +70,39 @@ void test2(){
 }
 
 void test3(){
+	//Test that tables with the same headers in the wrong order
+	cout << "Running Test 3." << endl;
+
+	vector<string> colNameOne = {"Col1","Col2","Col3"};
+	vector<string> colNameTwo = {"Col2","Col1","Col3"};
+
+	vector<string> row1 = {"a","b","c"};
+	vector<string> row2 = {"d","e","f"};
+	vector<string> row3 = {"b","a","c"};
+	vector<string> row4 = {"h","g","i"};
+	vector<string> row5 = {"g","h","i"};
+
+	Table table1("Table",colNameOne);
+	Table table2("Table",colNameTwo);
+	Table table3("Table",colNameOne);
+
+	table1.addRow(Row(row1));
+	table1.addRow(Row(row2));
+
+	table2.addRow(Row(row3));
+	table2.addRow(Row(row4));
+
+	table3.addRow(Row(row1));
+	table3.addRow(Row(row2));
+	table3.addRow(Row(row5));
+
+	table1.tableUnion(table2);
+
+	if(table3.toString() == table1.toString()){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 
 }
 

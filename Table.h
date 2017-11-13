@@ -31,7 +31,7 @@ public:
 
 	Table join(const Table& table);
 
-	void tableUnion(const Table &table);
+	void tableUnion(Table table);
 
 	void addRow(Row rowIn);
 
@@ -55,6 +55,8 @@ private:
 			return false;
 		}
 	};
+
+	std::vector<int> getNewOrder(const Table &table) const;
 
 	std::string name;
 

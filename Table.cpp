@@ -89,15 +89,28 @@ Table Table::join(const Table &table) {
 	return Table();
 }
 
-void Table::tableUnion(const Table &table) {
+void Table::tableUnion(Table table) {
 
 	if(table.getHeaderColumnNames() != getHeaderColumnNames()){
 		//todo come up with a sort function using project to change the column order
-		std::cout << "Error: Unioning tables with non-matching column names!" << std::endl;
+		table = table.project(table.getNewOrder(*this));
 	}
 
 	for(auto &row : table.rows){
 		addRow(row);
 	}
 
+}
+
+std::vector<int> Table::getNewOrder(const Table &table) const {
+	std::vector<std::string> masterColumnNames = table.getHeaderColumnNames();
+	std::vector<std::string> thisColumnNames = getHeaderColumnNames();
+	std::vector<int> newOrder(masterColumnNames.size(),-1);
+	for(size_t i = 0;i < masterColumnNames.size(); i++){
+		for(size_t j = 0; j < thisColumnNames.size();j++){
+			if(masterColumnNames.at(i) == thisColumnNames.at(j))
+				newOrder.at(i) = (int)j;
+		}
+	}
+	return newOrder;
 }
