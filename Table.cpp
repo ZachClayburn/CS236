@@ -106,7 +106,18 @@ Table Table::join(Table table) {
 	}
 
 	Table newTable(name,header.getColumnNames(),table.header.getReducedColumnNames(columnsToKeep));
-
+	for(auto &row1 : rows) {
+		for (auto &row2 : table.rows) {
+			bool keepRow = true;
+			for (auto &key : matchingColumns) {
+				if(!key.checkMatch(row1,row2))
+					keepRow = false;
+			}
+			if(keepRow){
+				newTable.addRow(Row(row1,row2.getReducedRow(columnsToKeep)));
+			}
+		}
+	}
 	return newTable;
 }
 
