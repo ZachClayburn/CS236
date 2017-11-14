@@ -16,3 +16,11 @@ bool ColumnColumnKey::checkMatch(const Row &row) const {
 	return one == two;
 }
 
+bool ColumnColumnKey::checkMatch(const Row &row1, const Row &row2) const {
+	return row1.at(column1) == row2.at(column2);
+}
+
+int ColumnColumnKey::getRemoveColumns() const {
+	return column2;
+}
+

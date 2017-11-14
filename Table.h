@@ -14,12 +14,15 @@
 #include "Row.h"
 #include "SelectionKey.h"
 #include "ColumnNamePair.h"
+#include "ColumnColumnKey.h"
 
 class Table {
 
 public:
 
 	Table(std::string nameIn = "Null", std::vector<std::string> columnNamesIn = {});
+
+	Table(std::string nameIn , std::vector<std::string> columnNamesIn1, std::vector<std::string> columnNamesIn2);
 
 	Table(const Table& table);
 
@@ -29,7 +32,7 @@ public:
 
 	Table rename(std::vector<ColumnNamePair> newNames);
 
-	Table join(const Table& table);
+	Table join(Table table);
 
 	void tableUnion(Table table);
 

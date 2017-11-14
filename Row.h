@@ -19,13 +19,15 @@ public:
 
 	Row(std::vector<std::string> contentsIn);
 
+	Row(Row row1, Row row2);
+
 	Row getReducedRow(std::vector<int> columnsToKeep) const ;
 
 	size_t size() const;
 
 	const std::string at(size_t i) const;
 
-	std::string toString(std::vector<std::string> headerNames) const ;
+	std::string toString(std::vector<std::string> headerNames) const;
 
 private:
 

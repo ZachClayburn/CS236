@@ -10,6 +10,19 @@ Row::Row(std::vector<std::string> contentsIn) {
 
 }
 
+Row::Row(Row row1, Row row2) : contents(row1.contents.size()+row2.contents.size(),""){
+	size_t i = 0;
+
+	for(auto & content : row1.contents){
+		contents.at(i) = content;
+		i++;
+	}
+	for(auto & content : row2.contents){
+		contents.at(i) = content;
+		i++;
+	}
+}
+
 size_t Row::size() const{
 	return contents.size();
 }

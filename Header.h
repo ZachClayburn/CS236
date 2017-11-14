@@ -10,6 +10,7 @@
 #include <sstream>
 #include <vector>
 #include <set>
+#include "ColumnColumnKey.h"
 
 class Header {
 
@@ -17,13 +18,17 @@ public:
 
 	Header(std::vector<std::string> colNamesIn);
 
+	Header(std::vector<std::string> header1, std::vector<std::string> header2);
+
 	std::vector<std::string> getColumnNames() const;
 
 	std::vector<std::string> getReducedColumnNames(std::vector<int> columnsToKeep);
 
-	size_t size();
+	size_t size() const;
 
 	std::string toString();
+
+	std::vector<ColumnColumnKey> getMatchingColumns(const Header &header);
 
 private:
 

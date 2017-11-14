@@ -16,6 +16,10 @@ public:
 
 	virtual bool checkMatch(const Row &row) const override;
 
+	virtual bool checkMatch(const Row &row1, const Row &row2) const;
+
+	int getRemoveColumns() const;
+
 private:
 
 	int column1;

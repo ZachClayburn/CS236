@@ -15,6 +15,11 @@ Table::Table(const Table &table): header(table.header) {
 	rows = table.rows;
 }
 
+Table::Table(std::string nameIn, std::vector<std::string> columnNamesIn1, std::vector<std::string> columnNamesIn2) :
+		header(columnNamesIn1,columnNamesIn2){
+	name = nameIn;
+}
+
 std::string Table::toString() {
 
 	std::vector<std::string> headerNames = header.getColumnNames();
@@ -85,14 +90,29 @@ size_t Table::size() {
 	return rows.size();
 }
 
-Table Table::join(const Table &table) {
-	return Table();
+Table Table::join(Table table) {
+	std::vector<ColumnColumnKey> matchingColumns = header.getMatchingColumns(table.header);
+	std::set<int> removeColumns;
+	std::vector<int> columnsToKeep;
+	for(auto &key : matchingColumns){
+		removeColumns.insert(key.getRemoveColumns());
+	}
+
+	for(int i = 0; i < table.header.size(); i++){
+		auto check = removeColumns.insert(i);
+		if(check.second){
+			columnsToKeep.push_back(i);
+		}
+	}
+
+	Table newTable(name,header.getColumnNames(),table.header.getReducedColumnNames(columnsToKeep));
+
+	return newTable;
 }
 
 void Table::tableUnion(Table table) {
 
 	if(table.getHeaderColumnNames() != getHeaderColumnNames()){
-		//todo come up with a sort function using project to change the column order
 		table = table.project(table.getNewOrder(*this));
 	}
 

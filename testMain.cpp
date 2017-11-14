@@ -107,6 +107,26 @@ void test3(){
 }
 
 void test4(){
+	//Tests that join properly appends the tables' headers together
+	cout << "Running test 4." << endl;
+
+	vector<string> columnNames1 = {"Col1","Col2","Col4"};
+	vector<string> columnNames2 = {"Col1","Col4","Col5","Col6"};
+	vector<string> columnNames3 = {"Col1","Col2","Col4","Col5","Col6"};
+
+	Table table1("Table",columnNames1);
+	Table table2("Table",columnNames2);
+	Table table3("Table",columnNames3);
+
+	Table table4 = table1.join(table2);
+
+
+
+	if(table3.toString() == table4.toString()){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 
 }
 
