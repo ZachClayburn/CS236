@@ -31,12 +31,18 @@ public:
 	 */
 	std::string toString();
 
+	bool moreRules();
+
+	Rule* getRule();
+
 private:
 
 	/**
 	 * A vector containing all of the Rules.
 	 */
 	std::vector<Rule> rulesList;
+
+	size_t curRule = 0;
 
 	/**
 	 * Adds a rule to rulesList.

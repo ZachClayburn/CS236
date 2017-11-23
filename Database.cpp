@@ -4,10 +4,12 @@
 
 #include "Database.h"
 
-Database::Database(Parser* parser) {
-	addSchemes(parser);
-	addRows(parser);
-	evalQueries(parser);
+Database::Database(Parser *parserIn) {
+	parser = parserIn;
+	addSchemes();
+	addRows();
+	evalRules();
+	evalQueries();
 }
 
 void Database::printDatabase() {
@@ -19,7 +21,7 @@ void Database::printDatabase() {
 
 }
 
-void Database::addSchemes(Parser *parser) {
+void Database::addSchemes() {
 	Schemes* schemes = parser->getSchemes();
 
 	while(schemes->moreSchemes()){
@@ -31,7 +33,7 @@ void Database::addSchemes(Parser *parser) {
 
 }
 
-void Database::addRows(Parser *parser) {
+void Database::addRows() {
 	Facts* facts = parser->getFacts();
 
 	while(facts->moreFacts()){
@@ -41,7 +43,33 @@ void Database::addRows(Parser *parser) {
 
 }
 
-void Database::evalQueries(Parser *parser) {
+void Database::evalRules() {
+	Rules* rules = parser->getRules();
+	bool isChanged;
+
+	do {
+		isChanged = false;
+		while (rules->moreRules()) {
+			Rule *rule = rules->getRule();
+			Table ruleResult(rule->getHeadID());
+			while (rule->morePredicates()) {
+				Predicate *predicate = rule->getPredicate();
+				Table predResult = tables.at(predicate->getIDString()).select(predicate->getSelectionKeys());
+				std::vector<int> columnsToKeep = predicate->getColumnsToKeep();
+				std::vector<ColumnNamePair> renames = predicate->getRenames(columnsToKeep);
+				predResult = predResult.rename(renames).project(columnsToKeep);
+				ruleResult = ruleResult.join(predResult);
+			}
+			ruleResult = ruleResult.project(rule->getColumnsToKeep(ruleResult.getHeaderColumnNames()));
+			ruleResult = ruleResult.rename(rule->getRenames());
+			if(tables.at(ruleResult.getName()).tableUnion(ruleResult))
+				isChanged = true;
+		}
+	}while(isChanged);
+
+}
+
+void Database::evalQueries() {
 	Queries* queries = parser->getQueries();
 
 	while(queries->moreQueries()){

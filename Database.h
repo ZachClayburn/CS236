@@ -13,19 +13,23 @@ class Database {
 
 public:
 
-	Database(Parser* parser);
+	Database(Parser *parserIn);
 
 	void printDatabase();
 
 private:
 
-	void addSchemes(Parser *parser);
+	void addSchemes();
 
-	void addRows(Parser *parser);
+	void addRows();
 
-	void evalQueries(Parser *parser);
+	void evalRules();
+
+	void evalQueries();
 
 	std::map<std::string,Table> tables;
+
+	Parser* parser;
 
 };
 

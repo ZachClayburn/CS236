@@ -22,6 +22,16 @@ std::string Rules::toString() {
 	return ss.str();
 }
 
+bool Rules::moreRules() {
+	return curRule < rulesList.size();
+}
+
+Rule *Rules::getRule() {
+	Rule* rValue = &(rulesList.at(curRule));
+	curRule++;
+	return rValue;
+}
+
 void Rules::addRule(Lexer &lexer) {
 	if(lexer.checkNextType(Token::ID)){
 		rulesList.emplace_back(Rule(lexer));

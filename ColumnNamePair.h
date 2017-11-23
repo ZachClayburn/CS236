@@ -11,7 +11,7 @@ class ColumnNamePair {
 
 public:
 
-	ColumnNamePair(int columnIn, std::string nameIn);
+	ColumnNamePair(int columnIn = -1, std::string nameIn = "");
 
 	int getColumn() const;
 

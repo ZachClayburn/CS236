@@ -10,6 +10,7 @@
 #include "ID.h"
 #include "HeadPredicate.h"
 #include "Predicate.h"
+#include "Header.h"
 
 class Rule {
 
@@ -31,11 +32,23 @@ public:
 	 */
 	std::string toString();
 
+	bool morePredicates();
+
+	Predicate* getPredicate();
+
+	std::string getHeadID();
+
+	std::vector<int> getColumnsToKeep(std::vector<std::string> headerCols);
+
+	std::vector<ColumnNamePair> getRenames();
+
 private:
 
 	HeadPredicate head;
 
 	std::vector<Predicate> predicateList;
+
+	size_t curPred = 0;
 
 	void addPredicate(Lexer& lexer);
 };

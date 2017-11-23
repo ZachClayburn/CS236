@@ -34,9 +34,9 @@ public:
 
 	Table join(Table table);
 
-	void tableUnion(Table table);
+	bool tableUnion(Table table);
 
-	void addRow(Row rowIn);
+	bool addRow(Row rowIn);
 
 	std::string toString();
 

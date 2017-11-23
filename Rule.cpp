@@ -34,3 +34,29 @@ void Rule::addPredicate(Lexer& lexer) {
 	}
 
 }
+
+bool Rule::morePredicates() {
+	return curPred < predicateList.size();
+}
+
+Predicate *Rule::getPredicate() {
+	Predicate* rValue = &(predicateList.at(curPred));
+	curPred++;
+	return rValue;
+}
+
+std::string Rule::getHeadID() {
+	return head.getID();
+}
+
+std::vector<int> Rule::getColumnsToKeep(std::vector<std::string> headerCols) {
+	return head.getColumnsToKeep(headerCols);
+}
+
+std::vector<ColumnNamePair> Rule::getRenames() {
+	std::vector<std::string> headNames = head.getIdStrings();
+	std::vector<ColumnNamePair> renames(headNames.size(),ColumnNamePair());
+	for(size_t i = 0; i < renames.size(); i++)
+		renames.at(i) = ColumnNamePair((int)i,headNames.at(i));
+	return renames;
+}

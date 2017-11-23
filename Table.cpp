@@ -77,13 +77,15 @@ std::vector<std::string> Table::getHeaderColumnNames() const {
 	return header.getColumnNames();
 }
 
-void Table::addRow(Row rowIn) {
+bool Table::addRow(Row rowIn) {
 
 	if(rowIn.size() != header.size()){
 		throw "Row is incorrect size!";
 	}
 
-	rows.insert(rowIn);
+	auto result = rows.insert(rowIn);
+
+	return result.second;
 }
 
 size_t Table::size() {
@@ -106,6 +108,13 @@ Table Table::join(Table table) {
 	}
 
 	Table newTable(name,header.getColumnNames(),table.header.getReducedColumnNames(columnsToKeep));
+
+	if(rows.empty()){
+		for(auto &row : table.rows){
+			newTable.addRow(row);
+		}
+		return newTable;
+	}
 	for(auto &row1 : rows) {
 		for (auto &row2 : table.rows) {
 			bool keepRow = true;
@@ -121,16 +130,26 @@ Table Table::join(Table table) {
 	return newTable;
 }
 
-void Table::tableUnion(Table table) {
+bool Table::tableUnion(Table table) {
 
 	if(table.getHeaderColumnNames() != getHeaderColumnNames()){
 		table = table.project(table.getNewOrder(*this));
 	}
 
-	for(auto &row : table.rows){
-		addRow(row);
+	bool isAdded = false;
+
+	for(auto it = table.rows.begin(); it != table.rows.end();it++){
+		if(addRow(*it)){
+			isAdded = true;
+		}
 	}
 
+	/*for(auto &row : table.rows){
+		if(addRow(row))
+			isAdded = true;
+	}*/
+
+	return isAdded;
 }
 
 std::vector<int> Table::getNewOrder(const Table &table) const {

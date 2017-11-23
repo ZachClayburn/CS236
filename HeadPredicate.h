@@ -17,6 +17,12 @@ public:
 
 	std::string toString();
 
+	std::string getID();
+
+	std::vector<int> getColumnsToKeep(std::vector<std::string> headerCols);
+
+	std::vector<std::string> getIdStrings();
+
 private:
 
 	ID headID;

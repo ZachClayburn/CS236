@@ -33,3 +33,37 @@ void HeadPredicate::addID(Lexer &lexer) {
 		addID(lexer);
 	}
 }
+
+std::string HeadPredicate::getID() {
+	return headID.toString();
+}
+
+std::vector<int> HeadPredicate::getColumnsToKeep(std::vector<std::string> headerCols) {
+	std::vector<int> colsToKeep(IDList.size(),-1);
+
+	int outerCol = 0;
+	for(auto &ID : IDList){
+		int innerCol = 0;
+		std::string IDString = ID.toString();
+		while(IDString != headerCols.at(innerCol)) {
+			innerCol++;
+			if(innerCol >= headerCols.size()){
+				throw -1;
+			}
+		}
+		colsToKeep.at(outerCol) = innerCol;
+		outerCol++;
+	}
+
+	return colsToKeep;
+}
+
+std::vector<std::string> HeadPredicate::getIdStrings() {
+	std::vector<std::string> IDStrings(IDList.size(),"");
+	int ii = 0;
+	for(auto &ID : IDList){
+		IDStrings.at(ii) = ID.toString();
+		ii++;
+	}
+	return IDStrings;
+}
