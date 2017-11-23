@@ -164,3 +164,12 @@ std::vector<int> Table::getNewOrder(const Table &table) const {
 	}
 	return newOrder;
 }
+
+std::vector<ColumnNamePair> Table::getRenames() const {
+	std::vector<std::string> headerNames = header.getColumnNames();
+	std::vector<ColumnNamePair> renames(headerNames.size(),ColumnNamePair());
+	for(int i = 0; i < headerNames.size(); i++){
+		renames.at(i) = ColumnNamePair(i,headerNames.at(i));
+	}
+	return renames;
+}

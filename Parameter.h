@@ -46,6 +46,8 @@ public:
 
 	virtual Token::types getType();
 
+	Token getToken() const ;
+
 private:
 
 	Token token;

@@ -31,6 +31,8 @@ private:
 
 	Parser* parser;
 
+	size_t rulePasses = 0;
+
 };
 
 

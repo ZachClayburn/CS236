@@ -61,16 +61,19 @@ void Database::evalRules() {
 				ruleResult = ruleResult.join(predResult);
 			}
 			ruleResult = ruleResult.project(rule->getColumnsToKeep(ruleResult.getHeaderColumnNames()));
-			ruleResult = ruleResult.rename(rule->getRenames());
+			ruleResult = ruleResult.rename(tables.at(ruleResult.getName()).getRenames());//todo Get the name from the scheme, not the rule
 			if(tables.at(ruleResult.getName()).tableUnion(ruleResult))
 				isChanged = true;
 		}
+		rulePasses++;
 	}while(isChanged);
 
 }
 
 void Database::evalQueries() {
 	Queries* queries = parser->getQueries();
+
+	std::cout << "Schemes populated after " << rulePasses <<  " passes through the Rules." << std::endl;
 
 	while(queries->moreQueries()){
 		std::string query = queries->getFullQuery();

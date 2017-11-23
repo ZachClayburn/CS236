@@ -27,3 +27,7 @@ Token::types Parameter::getType() {
 		return Token::WHITESPACE;
 }
 
+Token Parameter::getToken() const {
+	return token;
+}
+

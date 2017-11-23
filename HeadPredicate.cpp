@@ -48,7 +48,7 @@ std::vector<int> HeadPredicate::getColumnsToKeep(std::vector<std::string> header
 		while(IDString != headerCols.at(innerCol)) {
 			innerCol++;
 			if(innerCol >= headerCols.size()){
-				throw -1;
+				throw ID.getToken();
 			}
 		}
 		colsToKeep.at(outerCol) = innerCol;

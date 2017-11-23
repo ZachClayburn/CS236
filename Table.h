@@ -46,6 +46,8 @@ public:
 
 	std::vector<std::string> getHeaderColumnNames() const;
 
+	std::vector<ColumnNamePair> getRenames() const;
+
 private:
 
 	struct rowComp{

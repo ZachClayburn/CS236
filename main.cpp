@@ -48,8 +48,11 @@ int main(int nargin, char* args[]) {
 		return 0;
 	}
 
-	Database database(parser);
-
+	try {
+		Database database(parser);
+	}catch (Token token){
+		std::cout << "Error in The following Token during evaluation: " << token.toString() << std::endl;
+	}
 	delete parser;
 
 	return 0;
