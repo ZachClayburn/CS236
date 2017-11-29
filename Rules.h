@@ -35,6 +35,8 @@ public:
 
 	Rule* getRule();
 
+	void reset();
+
 private:
 
 	/**

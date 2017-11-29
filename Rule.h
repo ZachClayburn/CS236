@@ -42,6 +42,8 @@ public:
 
 	std::vector<ColumnNamePair> getRenames();
 
+	void reset();
+
 private:
 
 	HeadPredicate head;

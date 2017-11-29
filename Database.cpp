@@ -62,9 +62,11 @@ void Database::evalRules() {
 			}
 			ruleResult = ruleResult.project(rule->getColumnsToKeep(ruleResult.getHeaderColumnNames()));
 			ruleResult = ruleResult.rename(tables.at(ruleResult.getName()).getRenames());//todo Get the name from the scheme, not the rule
+			rule->reset();
 			if(tables.at(ruleResult.getName()).tableUnion(ruleResult))
 				isChanged = true;
 		}
+		rules->reset();
 		rulePasses++;
 	}while(isChanged);
 

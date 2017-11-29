@@ -40,3 +40,7 @@ void Rules::addRule(Lexer &lexer) {
 	}
 
 }
+
+void Rules::reset() {
+	curRule = 0;
+}

@@ -60,3 +60,7 @@ std::vector<ColumnNamePair> Rule::getRenames() {
 		renames.at(i) = ColumnNamePair((int)i,headNames.at(i));
 	return renames;
 }
+
+void Rule::reset() {
+	curPred = 0;
+}
