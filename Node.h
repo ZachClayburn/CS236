@@ -20,6 +20,8 @@ public:
 
 	std::string toString();
 
+	const std::set<int>& getEdges() const;
+
 private:
 
 	std::set<int> edges;

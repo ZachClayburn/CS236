@@ -17,9 +17,11 @@ public:
 
 	Graph(int size = 0);
 
-	bool addEdge(int node, int edge);
+	bool addEdge(int startNode, int endNode);
 
 	std::string toString();
+
+	Graph reverse();
 
 private:
 

@@ -21,7 +21,7 @@ void test1() {
 	graph.addEdge(1,3);
 	graph.addEdge(2,3);
 
-	std::string resultString = ""
+	string resultString = ""
 			"R0:R1,R2\n"
 			"R1:R2,R3\n"
 			"R2:R3\n"
@@ -35,13 +35,61 @@ void test1() {
 }
 
 void test2(){
-	//
+	//Test if Graph can properly reverse
 	cout << "Running Test 2." << endl;
+
+	Graph graph(4);
+
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+	graph.addEdge(2,3);
+	graph.addEdge(3,0);
+
+	Graph reverseGraph = graph.reverse();
+
+	string testString = ""
+			"R0:R3\n"
+			"R1:R0\n"
+			"R2:R1\n"
+			"R3:R2\n";
+
+	if(reverseGraph.toString() == testString){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test3(){
-	//
+	//A more complicated reversal
 	cout << "Running Test 3." << endl;
+
+	Graph graph(8);
+
+	graph.addEdge(0,0);
+	graph.addEdge(0,1);
+	graph.addEdge(0,2);
+	graph.addEdge(0,3);
+	graph.addEdge(5,3);
+	graph.addEdge(6,7);
+
+	Graph testGraph = graph.reverse();
+
+	string testString = ""
+			"R0:R0\n"
+			"R1:R0\n"
+			"R2:R0\n"
+			"R3:R0,R5\n"
+			"R4:\n"
+			"R5:\n"
+			"R6:\n"
+			"R7:R6\n";
+
+	if(testGraph.toString() == testString){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test4(){

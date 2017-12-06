@@ -20,3 +20,7 @@ std::string Node::toString() {
 	}
 	return ss.str();
 }
+
+const std::set<int> &Node::getEdges() const {
+	return edges;
+}
