@@ -3,6 +3,7 @@
 #include <fstream>
 #include <set>
 #include <vector>
+#include "Graph.h"
 
 using std::cout;
 using std::endl;
@@ -10,8 +11,27 @@ using std::string;
 using std::vector;
 
 void test1() {
-	//
+	//Test that nodes are added and printed properly
 	cout << "Running Test 1." << endl;
+	Graph graph(4);
+
+	graph.addEdge(0,1);
+	graph.addEdge(0,2);
+	graph.addEdge(1,2);
+	graph.addEdge(1,3);
+	graph.addEdge(2,3);
+
+	std::string resultString = ""
+			"R0:R1,R2\n"
+			"R1:R2,R3\n"
+			"R2:R3\n"
+			"R3:\n";
+
+	if (graph.toString() == resultString){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test2(){
