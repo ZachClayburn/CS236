@@ -93,13 +93,63 @@ void test3(){
 }
 
 void test4(){
-	//
+	//Simple test of the topoOrdering function on a single cyclic graph
 	cout << "Running test 4." << endl;
+
+	Graph graph(4);
+
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+	graph.addEdge(2,3);
+	graph.addEdge(3,0);
+
+	std::vector<int> order = graph.topoOrdering();
+	std::vector<int> trueOrder = {0,1,2,3};
+
+	bool pass = true;
+
+	for(int i = 0; i < order.size(); i++){
+		if(order.at(i) != trueOrder.at(i)){
+			pass = false;
+		}
+	}
+
+	if(pass){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test5(){
-	//
+	//Testing another topographical ordering
 	cout << "Running test 5." << endl;
+
+	Graph graph(8);
+
+	graph.addEdge(0,3);
+	graph.addEdge(1,3);
+	graph.addEdge(2,6);
+	graph.addEdge(3,5);
+	graph.addEdge(3,7);
+	graph.addEdge(5,7);
+
+	std::vector<int> order = graph.topoOrdering();
+	std::vector<int> trueOrder = {4,2,6,1,0,3,5,7};
+
+	bool pass = true;
+
+	for(int i = 0; i < order.size(); i++){
+		if(order.at(i) != trueOrder.at(i)){
+			pass = false;
+		}
+	}
+
+	if(pass){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test6(){

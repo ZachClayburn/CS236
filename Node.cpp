@@ -24,3 +24,15 @@ std::string Node::toString() {
 const std::set<int> &Node::getEdges() const {
 	return edges;
 }
+
+void Node::visit() {
+	visited = true;
+}
+
+void Node::reset() {
+	visited = false;
+}
+
+bool Node::isVisited() {
+	return visited;
+}

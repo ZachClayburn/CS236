@@ -22,9 +22,17 @@ public:
 
 	const std::set<int>& getEdges() const;
 
+	void visit();
+
+	void reset();
+
+	bool isVisited();
+
 private:
 
 	std::set<int> edges;
+
+	bool visited = false;
 
 };
 
