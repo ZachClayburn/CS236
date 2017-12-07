@@ -26,13 +26,18 @@ const std::set<int> &Node::getEdges() const {
 }
 
 void Node::visit() {
-	visited = true;
+	visited = 2;
 }
 
 void Node::reset() {
-	visited = false;
+	visited = 0;
 }
 
-bool Node::isVisited() {
+void Node::newPass() {
+	if(visited)
+		visited = 1;
+}
+
+int Node::isVisited() {
 	return visited;
 }

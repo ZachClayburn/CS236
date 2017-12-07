@@ -103,8 +103,8 @@ void test4(){
 	graph.addEdge(2,3);
 	graph.addEdge(3,0);
 
-	std::stack<int> order = graph.topoOrdering();
-	std::stack <int> trueOrder;
+	std::queue<int> order = graph.topoOrdering();
+	std::queue <int> trueOrder;
 	trueOrder.push(3);
 	trueOrder.push(2);
 	trueOrder.push(1);
@@ -130,8 +130,8 @@ void test5(){
 	graph.addEdge(3,7);
 	graph.addEdge(5,7);
 
-	std::stack<int> order = graph.topoOrdering();
-	std::stack<int> trueOrder;
+	std::queue<int> order = graph.topoOrdering();
+	std::queue<int> trueOrder;
 	trueOrder.push(7);
 	trueOrder.push(5);
 	trueOrder.push(3);
@@ -149,8 +149,9 @@ void test5(){
 }
 
 void test6(){
-	//
+	//Test that SCC are computed correctly
 	cout << "Running test 6." << endl;
+
 }
 
 void test7(){

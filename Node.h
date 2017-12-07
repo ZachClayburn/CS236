@@ -26,13 +26,15 @@ public:
 
 	void reset();
 
-	bool isVisited();
+	void newPass();
+
+	int isVisited();
 
 private:
 
 	std::set<int> edges;
 
-	bool visited = false;
+	int visited = 0;
 
 };
 

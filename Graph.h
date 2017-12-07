@@ -11,6 +11,7 @@
 #include <sstream>
 #include <stack>
 #include "Node.h"
+#include "Forest.h"
 
 class Graph {
 
@@ -24,13 +25,15 @@ public:
 
 	Graph reverse();
 
-	std::stack<int> topoOrdering();
+	std::queue<int> topoOrdering();
+
+	Forest getSCC();
 
 private:
 
 	std::vector<Node> nodes;
 
-	void dfs(std::stack<int> &ordering, int curNode);
+	bool dfs(std::queue<int> &ordering, int curNode);
 
 };
 
