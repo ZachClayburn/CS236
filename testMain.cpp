@@ -103,18 +103,14 @@ void test4(){
 	graph.addEdge(2,3);
 	graph.addEdge(3,0);
 
-	std::vector<int> order = graph.topoOrdering();
-	std::vector<int> trueOrder = {0,1,2,3};
+	std::stack<int> order = graph.topoOrdering();
+	std::stack <int> trueOrder;
+	trueOrder.push(3);
+	trueOrder.push(2);
+	trueOrder.push(1);
+	trueOrder.push(0);
 
-	bool pass = true;
-
-	for(int i = 0; i < order.size(); i++){
-		if(order.at(i) != trueOrder.at(i)){
-			pass = false;
-		}
-	}
-
-	if(pass){
+	if(order == trueOrder){
 		cout << "Pass!" << endl;
 	} else{
 		cout << "Fail!" << endl;
@@ -134,18 +130,18 @@ void test5(){
 	graph.addEdge(3,7);
 	graph.addEdge(5,7);
 
-	std::vector<int> order = graph.topoOrdering();
-	std::vector<int> trueOrder = {4,2,6,1,0,3,5,7};
+	std::stack<int> order = graph.topoOrdering();
+	std::stack<int> trueOrder;
+	trueOrder.push(7);
+	trueOrder.push(5);
+	trueOrder.push(3);
+	trueOrder.push(0);
+	trueOrder.push(1);
+	trueOrder.push(6);
+	trueOrder.push(2);
+	trueOrder.push(4);
 
-	bool pass = true;
-
-	for(int i = 0; i < order.size(); i++){
-		if(order.at(i) != trueOrder.at(i)){
-			pass = false;
-		}
-	}
-
-	if(pass){
+	if(order == trueOrder){
 		cout << "Pass!" << endl;
 	} else{
 		cout << "Fail!" << endl;

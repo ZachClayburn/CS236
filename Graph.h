@@ -9,6 +9,7 @@
 #include <vector>
 #include <string>
 #include <sstream>
+#include <stack>
 #include "Node.h"
 
 class Graph {
@@ -23,15 +24,13 @@ public:
 
 	Graph reverse();
 
-	std::vector<int> topoOrdering();
+	std::stack<int> topoOrdering();
 
 private:
 
 	std::vector<Node> nodes;
 
-	void dfs(std::vector<int> &ordering, int &position, int curNode = 0);
-
-	bool isInVector(std::vector<int> &vector, int number);
+	void dfs(std::stack<int> &ordering, int curNode);
 
 };
 

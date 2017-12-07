@@ -36,13 +36,13 @@ Graph Graph::reverse() {
 	return graph;
 }
 
-std::vector<int> Graph::topoOrdering() {
-	std::vector<int> ordering(nodes.size(), -1);
+std::stack<int> Graph::topoOrdering() {
+	std::stack<int> ordering;
 	int position = nodes.size() - 1;
 
 	for (int i = 0; i < nodes.size(); i++){
 		if(!nodes.at(i).isVisited()) {
-			dfs(ordering, position, i);
+			dfs(ordering, i);
 		}
 	}
 	for(auto& node : nodes){
@@ -52,25 +52,13 @@ std::vector<int> Graph::topoOrdering() {
 	return ordering;
 }
 
-void Graph::dfs(std::vector<int> &ordering, int &position, int curNode) {
+void Graph::dfs(std::stack<int> &ordering, int curNode) {
 	std::set<int> currentEdges = nodes.at(curNode).getEdges();
 	nodes.at(curNode).visit();
 	for(auto &node : currentEdges){
 		if(!nodes.at(node).isVisited()){
-			dfs(ordering,position,node);
+			dfs(ordering,node);
 		}
 	}
-	ordering.at(position) = curNode;
-	position--;
-}
-
-bool Graph::isInVector(std::vector<int> &vector, int number) {
-	for(auto &curNumber : vector){
-		if(number == curNumber){
-			return true;
-		} else if(curNumber == -1){
-			return false;
-		}
-	}
-	return false;
+	ordering.push(curNode);
 }
