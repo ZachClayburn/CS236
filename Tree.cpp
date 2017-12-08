@@ -11,18 +11,17 @@ void Tree::setRecursive() {
 bool Tree::isRecursive() const {
 	return recursive;
 }
-
-bool Tree::operator==(const Tree &rhs) {
-	if((*this).size() != rhs.size() || this->isRecursive() != rhs.isRecursive()){
+bool operator==(const Tree &lhs, const Tree &rhs) {
+	if(lhs.size() != rhs.size() || lhs.isRecursive() != rhs.isRecursive()){
 		return false;
 	}
-	auto thisIt = this->begin();
+	auto lhsIt = lhs.begin();
 	auto rhsIt = rhs.begin();
-	while (thisIt != this->end()){
-		if(*thisIt != *rhsIt){
+	while (lhsIt != lhs.end()){
+		if(*lhsIt != *rhsIt){
 			return false;
 		}
-		thisIt++;
+		lhsIt++;
 		rhsIt++;
 	}
 	return true;

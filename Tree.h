@@ -17,7 +17,6 @@ public:
 
 	bool isRecursive() const;
 
-	bool operator==(const Tree &rhs);
 
 private:
 
@@ -25,5 +24,6 @@ private:
 
 };
 
+bool operator==(const Tree &lhs, const Tree &rhs);
 
 #endif //CS236_LAB_TREE_H

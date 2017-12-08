@@ -25,7 +25,7 @@ public:
 
 	Graph reverse();
 
-	std::queue<int> topoOrdering();
+	std::stack<int> topoOrdering();
 
 	Forest getSCC();
 
@@ -33,7 +33,7 @@ private:
 
 	std::vector<Node> nodes;
 
-	bool dfs(std::queue<int> &ordering, int curNode);
+	bool dfs(std::stack<int> &ordering, int curNode);
 
 };
 

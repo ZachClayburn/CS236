@@ -103,8 +103,8 @@ void test4(){
 	graph.addEdge(2,3);
 	graph.addEdge(3,0);
 
-	std::queue<int> order = graph.topoOrdering();
-	std::queue <int> trueOrder;
+	std::stack<int> order = graph.topoOrdering();
+	std::stack <int> trueOrder;
 	trueOrder.push(3);
 	trueOrder.push(2);
 	trueOrder.push(1);
@@ -130,8 +130,8 @@ void test5(){
 	graph.addEdge(3,7);
 	graph.addEdge(5,7);
 
-	std::queue<int> order = graph.topoOrdering();
-	std::queue<int> trueOrder;
+	std::stack<int> order = graph.topoOrdering();
+	std::stack<int> trueOrder;
 	trueOrder.push(7);
 	trueOrder.push(5);
 	trueOrder.push(3);
@@ -149,29 +149,181 @@ void test5(){
 }
 
 void test6(){
-	//Test that SCC are computed correctly
+	//Test that SCC are computed correctly just 3 components, linearly connected
 	cout << "Running test 6." << endl;
+
+	Graph graph(3);
+
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+
+	Forest forest = graph.getSCC();
+
+	Forest control;
+
+	control.emplace();//This is to create a new SCC, so I can add elements to it
+	control.back().insert(2);
+	control.emplace();
+	control.back().insert(1);
+	control.emplace();
+	control.back().insert(0);
+
+	if(forest == control){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 
 }
 
 void test7(){
-	//
+	//A more complicated SCC which includes a single cycle
 	cout << "Running test 7." << endl;
+
+	Graph graph(4);
+
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+	graph.addEdge(2,3);
+	graph.addEdge(3,0);
+
+	Forest forest = graph.getSCC();
+
+	Forest control;
+
+	control.emplace();
+	control.back().insert(0);
+	control.back().insert(1);
+	control.back().insert(2);
+	control.back().insert(3);
+	control.back().setRecursive();
+
+	if(forest == control){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test8(){
-	//
+	//Two SCC that are actually two disjoint graphs
 	cout << "Running test 8." << endl;
+
+	Graph graph(6);
+
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+	graph.addEdge(2,0);
+	graph.addEdge(3,4);
+	graph.addEdge(4,5);
+	graph.addEdge(5,3);
+
+	Forest forest = graph.getSCC();
+
+	Forest control;
+
+	control.emplace();
+	control.back().setRecursive();
+	control.back().insert(3);
+	control.back().insert(4);
+	control.back().insert(5);
+	control.emplace();
+	control.back().setRecursive();
+	control.back().insert(0);
+	control.back().insert(1);
+	control.back().insert(2);
+
+	if(forest == control){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test9(){
-	//
+	//A single circuit of for vertices, each with another pendant vertex.
 	cout << "Running test 9." << endl;
+
+	Graph graph(8);
+	graph.addEdge(0,1);
+	graph.addEdge(1,2);
+	graph.addEdge(2,3);
+	graph.addEdge(3,0);
+	graph.addEdge(0,4);
+	graph.addEdge(1,5);
+	graph.addEdge(2,6);
+	graph.addEdge(3,7);
+
+	Forest forest = graph.getSCC();
+
+	Forest control;
+	control.emplace();
+	control.back().insert(7);
+	control.emplace();
+	control.back().insert(6);
+	control.emplace();
+	control.back().insert(5);
+	control.emplace();
+	control.back().insert(4);
+	control.emplace();
+	control.back().insert(3);
+	control.back().insert(2);
+	control.back().insert(1);
+	control.back().insert(0);
+	control.back().setRecursive();
+
+	if(forest == control){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 void test10(){
-	//
+	//One last Test of a SCC, this time with several SCC of varying complexity
 	cout << "Running test 10." << endl;
+
+	Graph graph(9);
+	graph.addEdge(0,1);
+	graph.addEdge(0,2);
+	graph.addEdge(1,2);
+	graph.addEdge(1,5);
+	graph.addEdge(2,3);
+	graph.addEdge(3,6);
+	graph.addEdge(4,0);
+	graph.addEdge(4,1);
+	graph.addEdge(5,4);
+	graph.addEdge(6,6);
+	graph.addEdge(6,8);
+	graph.addEdge(7,8);
+	graph.addEdge(8,7);
+
+	Forest forest = graph.getSCC();
+
+	Forest control;
+	control.emplace();
+	control.back().setRecursive();
+	control.back().insert(7);
+	control.back().insert(8);
+	control.emplace();
+	control.back().setRecursive();
+	control.back().insert(6);
+	control.emplace();
+	control.back().insert(3);
+	control.emplace();
+	control.back().insert(2);
+	control.emplace();
+	control.back().setRecursive();
+	control.back().insert(0);
+	control.back().insert(1);
+	control.back().insert(4);
+	control.back().insert(5);
+
+	if(forest == control){
+		cout << "Pass!" << endl;
+	} else{
+		cout << "Fail!" << endl;
+	}
 }
 
 int main(){

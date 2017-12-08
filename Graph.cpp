@@ -36,8 +36,8 @@ Graph Graph::reverse() {
 	return graph;
 }
 
-std::queue<int> Graph::topoOrdering() {
-	std::queue<int> ordering;
+std::stack<int> Graph::topoOrdering() {
+	std::stack <int> ordering;
 
 	for (int i = 0; i < nodes.size(); i++){
 		if(!nodes.at(i).isVisited()) {
@@ -53,20 +53,21 @@ std::queue<int> Graph::topoOrdering() {
 
 Forest Graph::getSCC() {
 	Forest forest;
-	std::queue<int> ordering = reverse().topoOrdering();
+	std::stack<int> ordering = reverse().topoOrdering();
 
 	while (!ordering.empty()){
-		int currentNode = ordering.front();
+		int currentNode = ordering.top();
 
 		if(!nodes.at(currentNode).isVisited()){
-			std::queue<int> component;
+			std::stack<int> component;
 			forest.emplace();
 			if(dfs(component,currentNode)){
-				forest.front().setRecursive();
+				forest.back().setRecursive();
 			}
 			while(!component.empty()){
-				int temp = component.front();
-				forest.front().insert(temp);
+				int temp = component.top();
+				forest.back().insert(temp);
+				component.pop();
 			}
 		}
 
@@ -76,10 +77,14 @@ Forest Graph::getSCC() {
 		ordering.pop();
 	}
 
+	for(Node& node : nodes){
+		node.reset();
+	}
+
 	return forest;
 }
 
-bool Graph::dfs(std::queue<int> &ordering, int curNode) {
+bool Graph::dfs(std::stack<int> &ordering, int curNode) {
 	bool isRecursive = false;
 	std::set<int> currentEdges = nodes.at(curNode).getEdges();
 	nodes.at(curNode).visit();
