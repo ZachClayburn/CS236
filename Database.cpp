@@ -58,7 +58,7 @@ void Database::evalRules() {
 
 }
 
-void Database::evalRules(Rules *rules, Tree &SCC) {//TODO pass tree by reference
+void Database::evalRules(Rules *rules, Tree &SCC) {
 	bool isChanged;
 	bool isRecursive = SCC.isRecursive();
 
@@ -83,7 +83,7 @@ void Database::evalRules(Rules *rules, Tree &SCC) {//TODO pass tree by reference
 				isChanged = true;
 		}
 		rulePasses++;
-	}while(isChanged && !isRecursive);
+	}while(isChanged && isRecursive);
 
 }
 
