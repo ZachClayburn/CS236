@@ -6,8 +6,11 @@
 #define CS236_LAB_RULECLASS_H
 
 
+#include <map>
+#include <list>
 #include "Lexer.h"
 #include "Rule.h"
+#include "Graph.h"
 
 class Rules {
 
@@ -31,11 +34,11 @@ public:
 	 */
 	std::string toString();
 
-	bool moreRules();
+	Rule* at(int pos);
 
-	Rule* getRule();
+	size_t size();
 
-	void reset();
+	Graph getCallGraph();
 
 private:
 

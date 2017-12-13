@@ -37,7 +37,7 @@ Table Table::select(std::vector<SelectionKey*> selectionKeys) {
 	Table copy(name,header.getColumnNames());
 	for(auto it = rows.begin(); it != rows.end(); it++){
 		bool keepRow = true;
-		for(auto &key : selectionKeys){
+		for(SelectionKey* &key : selectionKeys){
 			if(!key->checkMatch(*it)) {
 				keepRow = false;
 			}
@@ -55,7 +55,7 @@ std::string Table::getName() {
 Table Table::project(const std::vector<int> &columnsToKeep) {
 	Table copy(name,header.getReducedColumnNames(columnsToKeep));
 
-	for(auto &row : rows){
+	for(const Row &row : rows){
 		copy.addRow(row.getReducedRow(columnsToKeep));
 	}
 
@@ -64,7 +64,7 @@ Table Table::project(const std::vector<int> &columnsToKeep) {
 
 Table Table::rename(std::vector<ColumnNamePair> newNames) {
 	std::vector<std::string> headerNames = header.getColumnNames();
-	for(auto &pair : newNames){
+	for(ColumnNamePair &pair : newNames){
 		headerNames.at(pair.getColumn()) = pair.getName();
 	}
 
@@ -96,7 +96,7 @@ Table Table::join(Table table) {
 	std::vector<ColumnColumnKey> matchingColumns = header.getMatchingColumns(table.header);
 	std::set<int> removeColumns;
 	std::vector<int> columnsToKeep;
-	for(auto &key : matchingColumns){
+	for(ColumnColumnKey &key : matchingColumns){
 		removeColumns.insert(key.getRemoveColumns());
 	}
 
@@ -110,15 +110,15 @@ Table Table::join(Table table) {
 	Table newTable(name,header.getColumnNames(),table.header.getReducedColumnNames(columnsToKeep));
 
 	if(rows.empty()){
-		for(auto &row : table.rows){
+		for(const Row &row : table.rows){
 			newTable.addRow(row);
 		}
 		return newTable;
 	}
-	for(auto &row1 : rows) {
-		for (auto &row2 : table.rows) {
+	for(const Row &row1 : rows) {
+		for (const Row &row2 : table.rows) {
 			bool keepRow = true;
-			for (auto &key : matchingColumns) {
+			for (ColumnColumnKey &key : matchingColumns) {
 				if(!key.checkMatch(row1,row2))
 					keepRow = false;
 			}

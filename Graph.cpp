@@ -28,7 +28,7 @@ Graph Graph::reverse() {
 
 	for(int startNode = 0; startNode < nodes.size(); startNode++){
 		const std::set<int>& edges = nodes.at(startNode).getEdges();
-		for (auto &endNode : edges){
+		for (const int &endNode : edges){
 			graph.addEdge(endNode,startNode);
 		}
 	}

@@ -44,6 +44,8 @@ public:
 
 	void reset();
 
+	std::vector<std::string> getPredicateIDs();
+
 private:
 
 	HeadPredicate head;

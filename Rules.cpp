@@ -22,16 +22,6 @@ std::string Rules::toString() {
 	return ss.str();
 }
 
-bool Rules::moreRules() {
-	return curRule < rulesList.size();
-}
-
-Rule *Rules::getRule() {
-	Rule* rValue = &(rulesList.at(curRule));
-	curRule++;
-	return rValue;
-}
-
 void Rules::addRule(Lexer &lexer) {
 	if(lexer.checkNextType(Token::ID)){
 		rulesList.emplace_back(Rule(lexer));
@@ -41,6 +31,37 @@ void Rules::addRule(Lexer &lexer) {
 
 }
 
-void Rules::reset() {
-	curRule = 0;
+Rule *Rules::at(int pos) {
+	return &(rulesList.at(pos));
+}
+
+size_t Rules::size() {
+	return rulesList.size();
+}
+
+Graph Rules::getCallGraph() {
+	Graph callGraph((int)rulesList.size());
+
+	std::map<std::string,std::list<int>> nameMap;
+
+	for(int i = 0; i < rulesList.size(); i++){
+		std::string currentHeadID = rulesList.at(i).getHeadID();
+		nameMap.insert(std::pair<std::string,std::list<int>>(currentHeadID,std::list<int>()));
+		nameMap.at(currentHeadID).push_back(i);
+	}
+
+	for(int i = 0; i < rulesList.size(); i++){
+		std::vector<std::string> predicateIDs = rulesList.at(i).getPredicateIDs();
+		for(int j = 0; j < predicateIDs.size(); j++){
+			auto it = nameMap.find(predicateIDs.at(j));
+			if(it != nameMap.end()){
+				for(auto& ruleNumber : it->second){
+					callGraph.addEdge(i,ruleNumber);
+				}
+			}
+		}
+	}
+
+
+	return callGraph;
 }

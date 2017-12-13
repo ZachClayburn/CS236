@@ -8,6 +8,7 @@
 #include <map>
 #include "Parser.h"
 #include "Table.h"
+#include "Graph.h"
 
 class Database {
 
@@ -22,6 +23,8 @@ private:
 	void addSchemes();
 
 	void addRows();
+
+	void evalRules(Rules *rules, Tree &SCC);
 
 	void evalRules();
 

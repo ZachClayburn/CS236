@@ -64,3 +64,11 @@ std::vector<ColumnNamePair> Rule::getRenames() {
 void Rule::reset() {
 	curPred = 0;
 }
+
+std::vector<std::string> Rule::getPredicateIDs() {
+	std::vector<std::string> predicateIDs(predicateList.size(),"");
+	for(int i = 0; i < predicateIDs.size(); i++){
+		predicateIDs.at(i) = predicateList.at(i).getIDString();
+	}
+	return predicateIDs;
+}

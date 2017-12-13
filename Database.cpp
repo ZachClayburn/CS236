@@ -45,12 +45,28 @@ void Database::addRows() {
 
 void Database::evalRules() {
 	Rules* rules = parser->getRules();
+
+
+	Graph callGraph = rules->getCallGraph();
+
+	Forest SCCs = callGraph.getSCC();
+
+	while(!SCCs.empty()){
+		evalRules(rules,SCCs.front());
+		SCCs.pop();
+	}
+
+}
+
+void Database::evalRules(Rules *rules, Tree &SCC) {//TODO pass tree by reference
 	bool isChanged;
+	bool isRecursive = SCC.isRecursive();
 
 	do {
 		isChanged = false;
-		while (rules->moreRules()) {
-			Rule *rule = rules->getRule();
+		//while (rules->moreRules()) {
+		for(const int& index : SCC){
+			Rule *rule = rules->at(index);
 			Table ruleResult(rule->getHeadID());
 			while (rule->morePredicates()) {
 				Predicate *predicate = rule->getPredicate();
@@ -61,14 +77,13 @@ void Database::evalRules() {
 				ruleResult = ruleResult.join(predResult);
 			}
 			ruleResult = ruleResult.project(rule->getColumnsToKeep(ruleResult.getHeaderColumnNames()));
-			ruleResult = ruleResult.rename(tables.at(ruleResult.getName()).getRenames());//todo Get the name from the scheme, not the rule
+			ruleResult = ruleResult.rename(tables.at(ruleResult.getName()).getRenames());
 			rule->reset();
 			if(tables.at(ruleResult.getName()).tableUnion(ruleResult))
 				isChanged = true;
 		}
-		rules->reset();
 		rulePasses++;
-	}while(isChanged);
+	}while(isChanged && !isRecursive);
 
 }
 

@@ -1,10 +1,11 @@
 #include <iostream>
 #include <vector>
 #include <fstream>
+#include <ctime>
 #include "Lexer.h"
 #include "Parser.h"
 #include "Database.h"
-
+//Unoptimized benchmark time: 168.168 seconds
 
 /**
  * Validates that file exists
@@ -16,6 +17,8 @@
 bool validateFile(const char* fileName);
 
 int main(int nargin, char* args[]) {
+	std::clock_t startTime, endTime;
+	startTime = std::clock();
 
 	//Variable declaration
 	Parser* parser = nullptr;
@@ -54,6 +57,12 @@ int main(int nargin, char* args[]) {
 		std::cout << "Error in The following Token during evaluation: " << token.toString() << std::endl;
 	}
 	delete parser;
+
+	endTime = std::clock();
+
+	double seconds = (double)(endTime - startTime) / CLOCKS_PER_SEC;
+
+	std::cout << "Process finished after " << seconds << " Seconds." << std::endl;
 
 	return 0;
 }
