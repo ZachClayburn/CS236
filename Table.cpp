@@ -92,7 +92,7 @@ size_t Table::size() {
 	return rows.size();
 }
 
-Table Table::join(Table table) {
+Table Table::join(Table &table) {
 	std::vector<ColumnColumnKey> matchingColumns = header.getMatchingColumns(table.header);
 	std::set<int> removeColumns;
 	std::vector<int> columnsToKeep;
@@ -130,7 +130,7 @@ Table Table::join(Table table) {
 	return newTable;
 }
 
-bool Table::tableUnion(Table table) {
+bool Table::tableUnion(Table &table) {
 
 	if(table.getHeaderColumnNames() != getHeaderColumnNames()){
 		table = table.project(table.getNewOrder(*this));

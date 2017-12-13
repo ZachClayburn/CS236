@@ -32,9 +32,9 @@ public:
 
 	Table rename(std::vector<ColumnNamePair> newNames);
 
-	Table join(Table table);
+	Table join(Table &table);
 
-	bool tableUnion(Table table);
+	bool tableUnion(Table &table);
 
 	bool addRow(Row rowIn);
 
