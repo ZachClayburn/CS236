@@ -46,13 +46,25 @@ void Database::addRows() {
 void Database::evalRules() {
 	Rules* rules = parser->getRules();
 
-
 	Graph callGraph = rules->getCallGraph();
+
+	std::cout << "Dependency Graph" << std::endl;
+	std::cout << callGraph.toString() << std::endl;
 
 	Forest SCCs = callGraph.getSCC();
 
+	std::cout << "Rule Evaluation" << std::endl;
 	while(!SCCs.empty()){
 		evalRules(rules,SCCs.front());
+		std::cout << rulePasses << " passes: ";
+		for(auto it = SCCs.front().begin(); it != SCCs.front().end(); it++){
+			std::cout << "R" << *it;
+			if(it != --SCCs.front().end()){
+				std::cout << ',';
+			}
+		}
+		std::cout << std::endl;
+		rulePasses = 0;
 		SCCs.pop();
 	}
 
@@ -90,7 +102,7 @@ void Database::evalRules(Rules *rules, Tree &SCC) {
 void Database::evalQueries() {
 	Queries* queries = parser->getQueries();
 
-	std::cout << "Schemes populated after " << rulePasses <<  " passes through the Rules." << std::endl;
+	std::cout << std::endl << "Query Evaluation" << std::endl;
 
 	while(queries->moreQueries()){
 		std::string query = queries->getFullQuery();
